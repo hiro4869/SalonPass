@@ -1,1 +1,30 @@
 <h1>Index</h1>
+
+<div>
+  <% if admin_signed_in? %>
+    <p>管理者ログイン中</p>
+    <p><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></p>
+  <% else %>
+    <a><%= link_to "管理ユーザーログイン", new_admin_session_path %></a>    
+  <% end %>
+</div>
+
+<div>
+  <% if owner_signed_in? %>
+    <p>オーナーログイン中</p>
+    <p><%= link_to "オーナーログアウト", destroy_owner_session_path, method: :delete %></p>
+  <% else %>
+    <a><%= link_to "オーナーログイン", new_owner_session_path %></a>
+  <% end %>
+</div>
+
+<div>
+  <% if user_signed_in? %>
+    <p>ユーザーログイン中</p>
+    <p><%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete %></p>
+  <% else %>
+    <a><%= link_to "ユーザーログイン", new_user_session_path %></a>
+  <% end %>
+</div>
+
+
