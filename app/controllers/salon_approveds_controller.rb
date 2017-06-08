@@ -4,10 +4,14 @@ class SalonApprovedsController < ApplicationController
     @SalonApproved = SalonApproved.new
     @SalonApproved.owner_id = current_owner.id
     @SalonApproved.user_id = params[:salon_approved][:user_id]
+
+    @SalonApplying = SalonApplying.where(user_id: "#{params[:salon_approved][:user_id]}").where(owner_id: "#{current_owner.id}")
+
     if @SalonApproved.save
-      redirect_to root_path
+      @SalonApplying.delete_all
+      redirect_to owner_owner_path(current_owner.id)
     else
-      redirect_to root_path
+      redirect_to owner_owner_path(current_owner.id)
     end
 
   end
