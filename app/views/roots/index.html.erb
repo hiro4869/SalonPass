@@ -9,6 +9,8 @@
   <% end %>
 </div>
 
+<hr>
+
 <div>
   <% if owner_signed_in? %>
     <p>オーナーログイン中</p>
@@ -20,6 +22,8 @@
     <a><%= link_to "オーナーログイン", new_owner_session_path %></a>
   <% end %>
 </div>
+
+<hr>
 
 <div>
   <% if user_signed_in? %>

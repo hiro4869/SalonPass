@@ -19,10 +19,12 @@ class OwnerController < ApplicationController
 
   def correct_salon_user
     #サロンに参加していない人はサロンのトップページにリダイレクトさせる
-    # mysalon = SalonApplying.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:id]}")
-    # redirect_to salon_index_owner_path(params[:id]) unless mysalon.exists?
-    mysalon = SalonApproved.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:id]}")
-    redirect_to salon_index_owner_path(params[:id]) unless mysalon.exists?
+    if current_user.nil?
+      redirect_to root_path unless current_owner.id == "#{params[:id]}".to_i
+    else
+      mysalon = SalonApproved.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:id]}")
+      redirect_to salon_index_owner_path(params[:id]) unless mysalon.exists?
+    end
   end
 
 end
