@@ -14,7 +14,9 @@
 <hr>
 <h2>承認済みのユーザー一覧</h2>
 
-
+<% @SalonApprovedMember.each do |user| %>
+  <p>ユーザーid:<%= user.user_id %></p>
+<% end %>
 
 
 

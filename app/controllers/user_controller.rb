@@ -1,7 +1,8 @@
 class UserController < ApplicationController
 
   def show
-    @salons = SalonApplying.where(user_id: "#{current_user.id}")
+    @SalonApplying = SalonApplying.where(user_id: "#{current_user.id}")
+    @SalonApproved = SalonApproved.where(user_id: "#{current_user.id}")
   end
 
 end
