@@ -1,0 +1,2 @@
+class SalonApproved < ApplicationRecord
+end

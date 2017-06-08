@@ -7,19 +7,11 @@ class OwnerController < ApplicationController
   end
 
   def show
-    # @salon = SalonApplying.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:id]}")
-    mysalon = SalonApplying.where(user_id: "#{current_user.id}").where(owner_id: "6")
-    if mysalon.exists?
-      @answer = "あるよ！"
-    else
-      @answer = "ないよ！"
-    end
-
-
-
   end
 
   def owner
+    @SalonApplyingMember = SalonApplying.where(owner_id: "#{current_owner.id}")
+    @SalonApproved = SalonApproved.new
   end
 
   private
