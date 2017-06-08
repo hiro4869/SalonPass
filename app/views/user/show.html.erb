@@ -1,0 +1,8 @@
+<h1>マイページ</h1>
+
+<h2>参加中のサロン</h2>
+<% @salons.each do |salon| %>
+  <p>サロン：<%= link_to salon.owner_id, salon_index_owner_path(salon.owner_id) %></p>
+<% end %>
+
+<%= link_to "home", root_path %>

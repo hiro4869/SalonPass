@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user, only: [:show]
   resources :posts
   resources :salon_applyings
 
