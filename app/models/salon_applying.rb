@@ -1,0 +1,2 @@
+class SalonApplying < ApplicationRecord
+end

@@ -1,0 +1,11 @@
+<h1>Salon Top</h1>
+
+<p>サロンに参加する</p>
+<p>サロンID:<%= @owner_id %></p>
+
+<%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
+  <%= f.hidden_field :owner_id, :value => @owner_id %>
+  <p><%= f.submit "サロンに参加する" %></p>
+<% end %>
+
+<%= link_to "home", root_path %>

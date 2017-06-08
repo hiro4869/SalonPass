@@ -19,11 +19,13 @@ Rails.application.routes.draw do
 
   resources :owner, only: [:show] do
     member do
+      get :salon_index
       get :owner
     end
   end
 
   resources :posts
+  resources :salon_applyings
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
