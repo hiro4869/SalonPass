@@ -1,5 +1,6 @@
 class SalonsController < ApplicationController
-  before_action :correct_salon_user, only: :show
+  before_action :correct_salon_user_for_index, only: :show
+  before_action :correct_salon_owner_for_index, only: :owner
 
   def salon_index
     @SalonApplying = SalonApplying.new
@@ -11,14 +12,19 @@ class SalonsController < ApplicationController
   end
 
   def owner
+    #申請中のuserデータを抽出
     @SalonApplyingMember = SalonApplying.where(owner_id: "#{current_owner.id}")
-    @SalonApproved = SalonApproved.new
+
+    #参加中のデータの抽出
     @SalonApprovedMember = SalonApproved.where(owner_id: "#{current_owner.id}")
+
+    @SalonApproved = SalonApproved.new
+    
   end
 
   private
 
-  def correct_salon_user
+  def correct_salon_user_for_index
     #サロンに参加していない人はサロンのトップページにリダイレクトさせる
     if current_user.nil?
       redirect_to root_path unless current_owner.id == "#{params[:id]}".to_i
@@ -28,5 +34,13 @@ class SalonsController < ApplicationController
     end
   end
 
+  def correct_salon_owner_for_index
+    #サロンオーナー以外はサロンのトップページにリダイレクトさせる
+    if current_owner.nil?
+      redirect_to root_path
+    else
+      redirect_to root_path unless current_owner.id == "#{params[:id]}".to_i
+    end
+  end
 
 end

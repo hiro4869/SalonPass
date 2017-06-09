@@ -1,5 +1,12 @@
 <h1>Owner専用ページ</h1>
 
+<h2>掲示板管理</h2>
+<p><%= link_to "新規投稿" , new_salon_post_path(current_owner.id) %></p>
+<p><%= link_to "サロン掲示板を見る" , salon_posts_path(current_owner.id) %></p>
+
+
+<hr>
+
 <h2>申請中のユーザー一覧</h2>
 
 <% @SalonApplyingMember.each do |user| %>

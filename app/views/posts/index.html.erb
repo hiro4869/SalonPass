@@ -1,5 +1,10 @@
 <h1>Post Index</h1>
 
+<% @posts.each do |post| %>
+  <p>タイトル：<%= post.title %></p>
+  <p>本文：<%= post.body %></p>
+  <a>--------------------------------</a>
+<% end %>
 
 
 <p><%= link_to "サロントップ", salon_path(@salon_id) %></p>
