@@ -25,6 +25,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :salons, only: [:show] do
+    resources :posts
+    member do
+      get :salon_index
+      get :owner
+    end
+  end
+
   resources :user, only: [:show]
   resources :salon_applyings
   resources :salon_approveds

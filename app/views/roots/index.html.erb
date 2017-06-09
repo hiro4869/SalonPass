@@ -18,6 +18,11 @@
     <p><%= link_to "マイサロン", owner_path(current_owner.id) %></p>
     <p><%= link_to "オーナー専用ページ", owner_owner_path(current_owner.id) %></p>
     <p><%= link_to "オーナーログアウト", destroy_owner_session_path, method: :delete %></p>
+    <a>------------------------</a>
+    <p>新ルーティング</p>
+    <p><%= link_to "サロントップ", salon_index_salon_path(current_owner.id) %></p>
+    <p><%= link_to "マイサロン", salon_path(current_owner.id) %></p>
+    <p><%= link_to "オーナー専用ページ", owner_salon_path(current_owner.id) %></p>
   <% else %>
     <a><%= link_to "オーナーログイン", new_owner_session_path %></a>
   <% end %>
