@@ -3,6 +3,7 @@ class PostCommentsController < ApplicationController
   def create
     @comment = PostComment.new(post_comment_params)
     @comment.post_id = params[:post_id]
+
     if current_user.nil?
       @comment.owner_id = current_owner.id
     else
@@ -16,6 +17,11 @@ class PostCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = PostComment.find(params[:id])
+    @comment.destroy
+    redirect_to salon_posts_path(params[:salon_id])
+  end
 
   private
 
