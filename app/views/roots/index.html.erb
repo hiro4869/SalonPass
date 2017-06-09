@@ -14,8 +14,6 @@
 <div>
   <% if owner_signed_in? %>
     <p>オーナーログイン中</p>
-    <p><%= link_to "サロントップ", salon_index_salon_path(current_owner.id) %></p>
-    <p><%= link_to "マイサロン", salon_path(current_owner.id) %></p>
     <p><%= link_to "オーナー専用ページ", owner_salon_path(current_owner.id) %></p>
     <p><%= link_to "オーナーログアウト", destroy_owner_session_path, method: :delete %></p>
   <% else %>
@@ -35,4 +33,9 @@
   <% end %>
 </div>
 
+<hr>
+<h2>サロン一覧</h2>
+<% @salons.each do |salon| %>
+  <p>・<%= link_to salon.id, salon_index_salon_path(salon.id) %></p>
+<% end %>
 

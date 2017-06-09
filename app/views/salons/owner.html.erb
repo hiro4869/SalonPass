@@ -1,8 +1,16 @@
 <h1>Owner専用ページ</h1>
 
+<h2>サロンを見る</h2>
+  <p><%= link_to "サロントップ", salon_index_salon_path(current_owner.id) %></p>
+  <p><%= link_to "サロン会員トップ", salon_path(current_owner.id) %></p>
+<hr>
+
+
 <h2>掲示板管理</h2>
 <p><%= link_to "新規投稿" , new_salon_post_path(current_owner.id) %></p>
 <p><%= link_to "サロン掲示板を見る" , salon_posts_path(current_owner.id) %></p>
+<p><%= link_to "サロン掲示板管理画面" , owner_index_salon_posts_path(current_owner.id) %></p>
+
 
 
 <hr>

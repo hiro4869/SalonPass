@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.where(salon_id: "#{params[:salon_id]}")
   end
 
+  def owner_index
+    @salon_id = params[:salon_id]
+    @posts = Post.where(salon_id: "#{params[:salon_id]}")
+  end
+
   def new
     @post = Post.new
     @salon_id = params[:salon_id]

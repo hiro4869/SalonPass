@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   }
 
   resources :salons, only: [:show] do
-    resources :posts
+    resources :posts do
+      collection do
+        get :owner_index
+      end
+    end
     member do
       get :salon_index
       get :owner
