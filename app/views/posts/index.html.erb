@@ -9,7 +9,11 @@
   <% end %>
   <p>【最新のコメント】</p>
   <% post.post_comments.last(3).each do |comment| %>
-    <p>・<%= comment.body %></p>
+    <% if comment.user_id.nil? %>
+      <p>・<%= comment.owner.email %> | <%= comment.body %></p>
+    <% else %>
+      <p>・<%= comment.user.email %> | <%= comment.body %></p>
+    <% end %>
   <% end %>
   <p><%= link_to "全てのコメントを見る" , salon_post_path(params[:salon_id], post.id) %></p>
   <a>--------------------------------</a>

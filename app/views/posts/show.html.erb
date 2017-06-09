@@ -10,7 +10,11 @@
 
 <p>【コメント一覧】</p>
 <% @post.post_comments.each do |comment| %>
-  <p>・<%= comment.body %></p>
+    <% if comment.user_id.nil? %>
+      <p>・<%= comment.owner.email %> | <%= comment.body %></p>
+    <% else %>
+      <p>・<%= comment.user.email %> | <%= comment.body %></p>
+    <% end %>
 <% end %>
 
 <p><%= link_to "掲示板一覧に戻る", salon_posts_path(params[:salon_id]) %></p>
