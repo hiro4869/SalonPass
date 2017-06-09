@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root 'roots#index'
 
   resources :owner, only: [:show] do
+    resources :posts
     member do
       get :salon_index
       get :owner
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
   end
 
   resources :user, only: [:show]
-  resources :posts
   resources :salon_applyings
   resources :salon_approveds
 

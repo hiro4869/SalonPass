@@ -7,6 +7,7 @@ class OwnerController < ApplicationController
   end
 
   def show
+    @salon_id = params[:id]
   end
 
   def owner

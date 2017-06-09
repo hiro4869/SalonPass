@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
 
-
-  def owner
-
+  def index
+    @salon_id = params[:owner_id]
   end
 
 
