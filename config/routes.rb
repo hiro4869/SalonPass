@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :salons, only: [:show] do
     resources :posts do
+      resources :post_comments
       collection do
         get :owner_index
       end

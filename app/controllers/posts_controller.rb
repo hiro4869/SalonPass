@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def index
     @salon_id = params[:salon_id]
     @posts = Post.where(salon_id: "#{params[:salon_id]}")
+
+    @comment = PostComment.new
   end
 
   def owner_index
@@ -72,6 +74,5 @@ class PostsController < ApplicationController
   def post_params
       params.require(:post).permit(:title, :body)
   end
-
 
 end
