@@ -3,6 +3,8 @@
 <% @posts.each do |post| %>
   <p>タイトル：<%= post.title %></p>
   <p>本文：<%= post.body %></p>
+  <p><%= link_to "編集ページへ", edit_salon_post_path(post.salon_id, post.id) %></p>
+  <p><%= link_to "削除", "/salons/#{post.salon_id}/posts/#{post.id}" , method: :delete %></p>
   <a>--------------------------------</a>
 <% end %>
 

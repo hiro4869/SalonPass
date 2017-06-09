@@ -1,0 +1,7 @@
+<h1>編集画面</h1>
+
+<%= form_for @post ,url: "/salons/#{params[:salon_id]}/posts/#{params[:id]}" ,method: :patch do |f| %>
+  <p>タイトル：<%= f.text_field :title %></p>
+  <p>本文：<%= f.text_field :body %></p>
+  <p><%= f.submit "更新" %></p>
+<% end %>
