@@ -15,6 +15,11 @@ class PostsController < ApplicationController
     @posts = Post.where(salon_id: "#{params[:salon_id]}")
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @comment = PostComment.new
+  end
+
   def new
     @post = Post.new
     @salon_id = params[:salon_id]
