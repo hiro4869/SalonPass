@@ -1,8 +1,13 @@
 <h1>Owner専用ページ</h1>
 
 <h2>サロンを見る</h2>
-  <p><%= link_to "サロントップ", salon_index_salon_path(current_owner.id) %></p>
+  <p><%= link_to "サロン紹介ページ", salon_index_salon_path(current_owner.id) %></p>
   <p><%= link_to "サロン会員トップ", salon_path(current_owner.id) %></p>
+<hr>
+
+
+<h2>サロン登録情報編集</h2>
+  <p><%= link_to "サロン情報登録", new_salon_salon_information_path(params[:id]) %></p>
 <hr>
 
 

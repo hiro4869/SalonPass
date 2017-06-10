@@ -1,0 +1,10 @@
+<h1>SalonInformation New</h1>
+
+<%= form_for @SalonInformation ,url: salon_salon_informations_path(params[:salon_id]) do |f| %>
+  <p>サロン名：<%= f.text_field :salon_name %></p>
+  <p>サロン説明：<%= f.text_field :salon_description %></p>
+  <%= f.submit "登録" %>
+<% end %>
+
+
+<p><%= link_to "管理ページに戻る", owner_salon_path(params[:salon_id]) %></p>

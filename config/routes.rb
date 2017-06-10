@@ -16,12 +16,15 @@ Rails.application.routes.draw do
   }
 
   resources :salons, only: [:show] do
+    resources :salon_informations, only: [:new, :create, :edit, :update]
+
     resources :posts do
       resources :post_comments
       collection do
         get :owner_index
       end
     end
+
     member do
       get :salon_index
       get :owner
