@@ -19,7 +19,9 @@ class SalonsController < ApplicationController
     @SalonApprovedMember = SalonApproved.where(owner_id: "#{current_owner.id}")
 
     @SalonApproved = SalonApproved.new
-    
+
+    @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
+
   end
 
   private
