@@ -15,9 +15,13 @@ Rails.application.routes.draw do
     registrations: 'owners/registrations'
   }
 
-  root 'roots#index'
-
-  resources :owner, only: [:show] do
+  resources :salons, only: [:show] do
+    resources :posts do
+      resources :post_comments
+      collection do
+        get :owner_index
+      end
+    end
     member do
       get :salon_index
       get :owner
@@ -25,10 +29,10 @@ Rails.application.routes.draw do
   end
 
   resources :user, only: [:show]
-  resources :posts
-  resources :salon_applyings
-  resources :salon_approveds
+  resources :salon_applyings, only: [:create]
+  resources :salon_approveds, only: [:create]
 
+  root 'roots#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

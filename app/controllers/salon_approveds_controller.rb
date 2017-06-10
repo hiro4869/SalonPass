@@ -9,9 +9,9 @@ class SalonApprovedsController < ApplicationController
 
     if @SalonApproved.save
       @SalonApplying.delete_all
-      redirect_to owner_owner_path(current_owner.id)
+      redirect_to owner_salon_path(current_owner.id)
     else
-      redirect_to owner_owner_path(current_owner.id)
+      redirect_to owner_salon_path(current_owner.id)
     end
 
   end
