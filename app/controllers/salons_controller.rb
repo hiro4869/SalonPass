@@ -15,14 +15,6 @@ class SalonsController < ApplicationController
   end
 
   def owner
-    #申請中のuserデータを抽出
-    @SalonApplyingMember = SalonApplying.where(owner_id: "#{current_owner.id}")
-
-    #参加中のデータの抽出
-    @SalonApprovedMember = SalonApproved.where(owner_id: "#{current_owner.id}")
-
-    @SalonApproved = SalonApproved.new
-
     @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
 
   end

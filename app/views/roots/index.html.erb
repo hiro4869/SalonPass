@@ -36,6 +36,6 @@
 <hr>
 <h2>サロン一覧</h2>
 <% @salons.each do |salon| %>
-  <p>・<%= link_to salon.id, salon_index_salon_path(salon.id) %></p>
+  <p>・<%= link_to salon.salon_name, salon_index_salon_path(salon.salon_id) %></p>
 <% end %>
 

@@ -1,5 +1,5 @@
 class RootsController < ApplicationController
   def index
-    @salons = Owner.all.select("id")
+    @salons = SalonInformation.all
   end
 end

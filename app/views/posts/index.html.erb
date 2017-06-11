@@ -9,7 +9,7 @@
   <% end %>
   <p>【最新のコメント】</p>
   <% post.post_comments.last(3).each do |comment| %>
-    <p>・<%= comment.get_email %> | <%= comment.body %>
+    <p>・<%= comment.get_nickname %> | <%= comment.body %>
       <% if current_role.owner_of?(comment) %>
         <%= link_to "削除", "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments/#{comment.id}", method: :delete %>
       <% end %>
