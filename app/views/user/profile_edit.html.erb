@@ -1,0 +1,11 @@
+<h1>ユーザープロフィール編集</h1>
+
+<%= form_for @user ,url: profile_update_user_path(@user.id) do |f| %>
+  <p>Eメール:<%= f.text_field :email %></p>
+  <p>ニックネーム:<%= f.text_field :nickname %></p>
+  <p>自己紹介:<%= f.text_field :self_introduction %></p>
+  <p><%= f.submit "更新" %></p>
+<% end %>
+
+
+<p><%= link_to "マイページへ戻る", user_path(params[:id]) %></p>

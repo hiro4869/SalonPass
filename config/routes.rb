@@ -31,7 +31,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user, only: [:show]
+  resources :owner, only: [] do
+    member do
+      get :profile_edit
+      patch :profile_update
+    end
+  end
+
+  resources :user, only: [:show] do
+    member do
+      get :profile_edit
+      patch :profile_update
+    end
+  end
   resources :salon_applyings, only: [:create]
   resources :salon_approveds, only: [:create]
 
