@@ -1,0 +1,8 @@
+<h1>承認メンバー一覧</h1>
+
+<% @SalonApprovedMember.each do |user| %>
+  <p>・ユーザーid:<%= user.user_id %></p>
+<% end %>
+
+
+<p><%= link_to "オーナー専用ページへ", owner_salon_path(params[:id]) %></p>

@@ -44,8 +44,8 @@ Rails.application.routes.draw do
       patch :profile_update
     end
   end
-  resources :salon_applyings, only: [:create]
-  resources :salon_approveds, only: [:create]
+  resources :salon_applyings, only: [:create, :show]
+  resources :salon_approveds, only: [:create, :show]
 
   root 'roots#index'
 

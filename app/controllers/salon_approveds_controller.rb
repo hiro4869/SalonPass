@@ -1,5 +1,9 @@
 class SalonApprovedsController < ApplicationController
 
+  def show
+    @SalonApprovedMember = SalonApproved.where(owner_id: params[:id])
+  end
+
   def create
     @SalonApproved = SalonApproved.new
     @SalonApproved.owner_id = current_owner.id

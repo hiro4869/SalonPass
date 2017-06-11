@@ -1,0 +1,12 @@
+<h1>申請中のユーザー一覧</h1>
+
+<% @SalonApplyingMember.each do |user| %>
+    <p>ユーザーid:<%= user.user_id %></p>
+    <%= form_for @SalonApproved ,url: '/salon_approveds',method: :post do |f| %>
+      <%= f.hidden_field :user_id, :value => user.user_id %>
+      <%= f.submit "承認する" %>
+    <% end %>
+    -------------------------
+<% end %>
+
+<p><%= link_to "オーナー専用ページへ", owner_salon_path(params[:id]) %></p>
