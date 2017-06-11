@@ -15,9 +15,16 @@ class SalonInformationsController < ApplicationController
   end
 
   def edit
+    @SalonInformation = SalonInformation.find_by(salon_id: params[:salon_id])
   end
 
   def update
+    @SalonInformation = SalonInformation.find_by(salon_id: params[:salon_id])
+    if @SalonInformation.update(salon_information_params)
+      redirect_to owner_salon_path(params[:salon_id])
+    else
+      render 'salon_informations/edit'
+    end
   end
 
 

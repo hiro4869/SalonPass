@@ -5,10 +5,13 @@ class SalonsController < ApplicationController
   def salon_index
     @SalonApplying = SalonApplying.new
     @salon_id = params[:id]
+
+    @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
   end
 
   def show
     @salon_id = params[:id]
+    @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
   end
 
   def owner
@@ -30,7 +33,7 @@ class SalonsController < ApplicationController
     #サロンに参加していない人はサロンのトップページにリダイレクトさせる
     if current_user.nil?
       # redirect_to root_path unless current_owner.id == "#{params[:id]}".to_i
-      redirect_to root_path unless current_owner.present? && current_owner.id == "#{params[:salon_id]}".to_i
+      redirect_to root_path unless current_owner.present? && current_owner.id == "#{params[:id]}".to_i
     else
       mysalon = SalonApproved.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:id]}")
       redirect_to salon_index_salon_path(params[:id]) unless mysalon.exists?

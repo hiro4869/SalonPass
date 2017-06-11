@@ -7,8 +7,12 @@
 
 
 <h2>サロン登録情報編集</h2>
-  <p><%= link_to "サロン情報登録", new_salon_salon_information_path(params[:id]) %></p>
-  <p><%= link_to "サロン情報編集", edit_salon_salon_information_path(params[:id],@SalonInformation.id) %></p>
+  <% if @SalonInformation.present? %>
+    <p><%= link_to "サロン情報編集", edit_salon_salon_information_path(params[:id],@SalonInformation.id) %></p>
+  <% else %>
+    <p><%= link_to "サロン情報登録", new_salon_salon_information_path(params[:id]) %></p>
+  <% end %>
+
 <hr>
 
 
