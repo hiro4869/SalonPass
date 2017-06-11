@@ -5,11 +5,11 @@ class PostComment < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :owner, optional: true
 
-  def get_email
+  def get_nickname
     if self.user_id.present?
-      self.user.email
+      self.user.nickname
     else
-      self.owner.email
+      self.owner.nickname
     end
   end
 end
