@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
   <p>タイトル：<%= post.title %></p>
-  <p>本文：<%= post.body %></p>
+  <p>本文：<%= post.body.html_safe %></p>
   <%= form_for @comment , url: "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments" , method: :post do |f| %>
     <p>コメント：<%= f.text_field :body %></p>
     <p><%= f.submit "コメントする" %></p>

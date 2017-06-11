@@ -6,8 +6,13 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
-
 gem 'hirb'
+
+#掲示板用エディタ
+gem 'ckeditor'
+ 
+gem 'rmagick'
+gem 'mini_magick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
