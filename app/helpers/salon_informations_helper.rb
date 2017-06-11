@@ -1,0 +1,2 @@
+module SalonInformationsHelper
+end

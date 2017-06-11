@@ -4,6 +4,7 @@ class PostCommentsController < ApplicationController
     @comment = PostComment.new(post_comment_params)
     @comment.post_id = params[:post_id]
 
+    #userとownerのどちらでログインしているかで条件分岐
     if current_user.nil?
       @comment.owner_id = current_owner.id
     else

@@ -1,16 +1,18 @@
-<h1>Salon Top</h1>
-
-<p>サロンに参加する</p>
-<p>サロンID:<%= @salon_id %></p>
+<% if @SalonInformation.present? %>
+  <h1><%= @SalonInformation.salon_name %></h1>
+  <hr>
+  <h2>サロン説明</h2>
+  <h3><%= @SalonInformation.salon_description %></h3>
+<% else %>
+  <h1>Salon Top</h1>
+<% end %>
 
 <%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
   <%= f.hidden_field :owner_id, :value => @salon_id %>
-  <p><%= f.submit "サロンに参加する" %></p>
+  <p><%= f.submit "サロンに参加申請を送る" %></p>
 <% end %>
 
-<p>会員ページはこちら</p>
-<p>サロン：<%= link_to "会員ページへ", salon_path(@salon_id) %></p>
-
+<p>会員ページはこちら：<%= link_to "会員ページへ", salon_path(@salon_id) %></p>
 
 
 <%= link_to "home", root_path %>

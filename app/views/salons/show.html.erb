@@ -1,4 +1,14 @@
-<h1>Salon show</h1>
+<% if @SalonInformation.present? %>
+  <h1><%= @SalonInformation.salon_name %></h1>
+  <hr>
+<% else %>
+  <h1>Salon show</h1>
+<% end %>
+
+
+
+
+
 <p>ここは会員のトップページになる</p>
 
 <p><%= link_to "サロン掲示板", salon_posts_path(@salon_id) %></p>

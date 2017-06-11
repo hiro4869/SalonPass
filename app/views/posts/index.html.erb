@@ -9,19 +9,11 @@
   <% end %>
   <p>【最新のコメント】</p>
   <% post.post_comments.last(3).each do |comment| %>
-    <% if comment.user_id.nil? %>
-      <p>・<%= comment.owner.email %> | <%= comment.body %>
-        <% unless current_owner.nil? then %>
-          <%= link_to "削除", "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments/#{comment.id}", method: :delete %>
-        <% end %>
-      </p>
-    <% else %>
-      <p>・<%= comment.user.email %> | <%= comment.body %>
-        <% unless current_user.nil? then %>
-          <%= link_to "削除", "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments/#{comment.id}", method: :delete if comment.user.id == current_user.id %>
-        <% end %>
-      </p>
-    <% end %>
+    <p>・<%= comment.get_email %> | <%= comment.body %>
+      <% if current_role.owner_of?(comment) %>
+        <%= link_to "削除", "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments/#{comment.id}", method: :delete %>
+      <% end %>
+    </p>
   <% end %>
   <p><%= link_to "全てのコメントを見る" , salon_post_path(params[:salon_id], post.id) %></p>
   <a>--------------------------------</a>

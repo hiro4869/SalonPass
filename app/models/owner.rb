@@ -5,5 +5,8 @@ class Owner < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :post_comments
-  
+
+  def owner_of?(comment)
+    self.id == comment.owner_id
+  end  
 end
