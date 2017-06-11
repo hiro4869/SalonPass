@@ -29,7 +29,8 @@ class SalonsController < ApplicationController
   def correct_salon_user_for_index
     #サロンに参加していない人はサロンのトップページにリダイレクトさせる
     if current_user.nil?
-      redirect_to root_path unless current_owner.id == "#{params[:id]}".to_i
+      # redirect_to root_path unless current_owner.id == "#{params[:id]}".to_i
+      redirect_to root_path unless current_owner.present? && current_owner.id == "#{params[:salon_id]}".to_i
     else
       mysalon = SalonApproved.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:id]}")
       redirect_to salon_index_salon_path(params[:id]) unless mysalon.exists?
