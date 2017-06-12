@@ -2,6 +2,6 @@
 
 <%= form_for @post ,url: "/salons/#{params[:salon_id]}/posts/#{params[:id]}" ,method: :patch do |f| %>
   <p>タイトル：<%= f.text_field :title %></p>
-  <p>本文：<%= f.text_field :body %></p>
+  <p>本文：<%= f.cktext_area :body %></p>
   <p><%= f.submit "更新" %></p>
 <% end %>
