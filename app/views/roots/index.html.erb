@@ -1,15 +1,4 @@
 
-<div>
-  <% if user_signed_in? %>
-    <p>ユーザーログイン中</p>
-    <p><%= link_to "マイページ", user_path(current_user.id) %></p>
-    <p><%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete %></p>
-  <% else %>
-    <a><%= link_to "ユーザーログイン", new_user_session_path %></a>
-  <% end %>
-</div>
-
-<hr>
 <h2>サロン一覧</h2>
 <% @salons.each do |salon| %>
   <p>・<%= link_to salon.salon_name, salon_index_salon_path(salon.salon_id) %></p>

@@ -40,5 +40,27 @@ $darkpink: #d64470;
 
 
 
+/*----(コンテンツ----------------------------*/
+
+.post {
+  margin: 10px 0 15px;
+  padding: 20px;
+  border: 2px solid $cyan;
+  border-radius: 10px;
+}
+
+.post-title {
+  margin-bottom: 20px;
+  color: $pink;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.post-border {
+  margin: 20px 0 15px;
+  border-bottom: 2px dashed $cyan;
+}
+
 
 
