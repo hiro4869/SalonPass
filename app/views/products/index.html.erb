@@ -1,0 +1,7 @@
+<h1>ショップのトップページ</h1>
+<% @products.each do |product| %>
+  <p>商品名<%= product.product_name %></p>
+  <p>価格：<%= product.price %>円</p>
+  <p>商品説明：<%= product.description.html_safe %></p>
+  --------------------------
+<% end %>

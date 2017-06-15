@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="owner-controler-box">
-            <h2>サロンを見る</h2>
+            <h2>マイサロン</h2>
             <p><%= link_to "サロン紹介ページ", salon_index_salon_path(current_owner.id) %></p>
             <p><%= link_to "サロン会員トップ", salon_path(current_owner.id) %></p>
             <p>余白</p>
@@ -23,10 +23,10 @@
         </div>
         <div class="col-sm-4">
           <div class="owner-controler-box">
-            <h2>掲示板管理</h2>
-            <p><%= link_to "新規投稿" , new_salon_post_path(current_owner.id) %></p>
-            <p><%= link_to "サロン掲示板を見る" , salon_posts_path(current_owner.id) %></p>
-            <p><%= link_to "サロン掲示板管理画面" , owner_index_salon_posts_path(current_owner.id) %></p>  
+            <h2>メンバー</h2>
+            <p><%= link_to "承認中のメンバー一覧", salon_applying_path(params[:id]) %></p>
+            <p><%= link_to "承認済みメンバー一覧", salon_approved_path(params[:id]) %></p>
+            <p>余白</p>
           </div>     
         </div>
       </div>
@@ -35,10 +35,26 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="owner-controler-box">
-            <h2>メンバー管理</h2>
-            <p><%= link_to "承認中のメンバー一覧", salon_applying_path(params[:id]) %></p>
-            <p><%= link_to "承認済みメンバー一覧", salon_approved_path(params[:id]) %></p>
-            <p>余白</p>
+            <h2>掲示板</h2>
+            <p><%= link_to "新規投稿" , new_salon_post_path(current_owner.id) %></p>
+            <p><%= link_to "サロン掲示板を見る" , salon_posts_path(current_owner.id) %></p>
+            <p><%= link_to "サロン掲示板管理画面" , owner_index_salon_posts_path(current_owner.id) %></p>            
           </div>
         </div>
+        <div class="col-sm-4">
+          <div class="owner-controler-box">
+            <h2>ショップ</h2>
+            <p><%= link_to "新規出品", new_salon_product_path(current_owner.id) %></p>
+            <p><%= link_to "マイショップ", salon_products_path(current_owner.id) %></p>
+            <p><%= link_to "マイショップ管理画面", owner_index_salon_products_path(current_owner) %></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="owner-controler-box">
+            <h2>コンテンツ</h2>
+            <p>余白</p>
+            <p>余白</p>
+            <p>余白</p>      
+          </div>
+        </div>        
       </div>
