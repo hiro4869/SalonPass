@@ -9,10 +9,7 @@
 
 <%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
   <%= f.hidden_field :owner_id, :value => @salon_id %>
-  <p><%= f.submit "サロンに参加申請を送る" %></p>
+  <p><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary" %></p>
 <% end %>
 
 <p>会員ページはこちら：<%= link_to "会員ページへ", salon_path(@salon_id) %></p>
-
-
-<%= link_to "home", root_path %>

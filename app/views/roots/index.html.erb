@@ -1,41 +1,116 @@
-<h1>Index</h1>
+<!-- application.htmlのcontainerclass終了タグ -->
+</div>
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーー -->
 
 <div>
-  <% if admin_signed_in? %>
-    <p>管理者ログイン中</p>
-    <p><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></p>
-  <% else %>
-    <a><%= link_to "管理ユーザーログイン", new_admin_session_path %></a>    
-  <% end %>
+  <%= image_tag('index/top-main.jpg', class: "index-top-image") %>
 </div>
 
-<hr>
 
+<div class="setumei">
+  <h3>オンラインサロンの作成はSalonPass！</h3>
+  <h3>SNS、ECサイト、教材作成などの機能満載</h3>
+  <br/>
+  <h1>あなただけのサロンを、無料で簡単に</h1>
+  <div><%= link_to "無料でオンラインサロンを開く", new_owner_registration_path , class: "btn btn-success btn-lg index-button-margin"%></div>
+</div>
+
+
+<div class="point">
+  <h2>SalonPassの３つのポイント</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="index-point-box">
+        <%= image_tag('index/index-icon-money.png', class: "index-icon-margin") %>
+
+          <h4>無料で運営</h4>
+          <p>初期費用・月額費用０円！
+            <br/>
+            オンラインサロンの作成から運営まで、無料でお使いいただけます。
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="index-point-box">
+          <%= image_tag('index/index-icon-driver.png', class: "index-icon-margin") %>
+          <h4>簡単カスタマイズ</h4>
+          <p>
+            難しい知識は一切不要！
+            <br/>
+            クリックするだけで簡単にカスタマイズすることができます。
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="index-point-box">
+          <%= image_tag('index/index-icon-castle.png', class: "index-icon-margin") %>        
+          <h4>あなただけのサロン</h4>
+            <p>
+            オリジナルサロンを作成！
+            <br/>
+            サロンメンバーだけが閲覧できるあなただけのオンラインサロンを作成できます。
+          </p>
+        </div>     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="osusume-salon">
+  <h2>こんなサロンが簡単に作れます</h2>
+  <% @salons.each do |salon| %>
+    <p>・<%= link_to salon.salon_name, salon_index_salon_path(salon.salon_id) %></p>
+  <% end %>
+  <p>（メモ）プラグインのスライドバーでサロンのトップ画像を移動させてサンプルを表示させる感じに。</p>
+</div>
+
+
+<div class="osusume-kinou">
+  <h2>あったら嬉しいこんな機能も、無料で使えます!</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="index-point-box">
+          <%= image_tag('index/index-icon-man.png', class: "index-icon-margin") %>
+          <h4>SNS</h4>
+          <p>サロンメンバーと楽しくやりとりができるSNS機能が無料で使えます</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="index-point-box">
+          <%= image_tag('index/index-icon-shoping.png', class: "index-icon-margin") %>
+          <h4>ECショップ</h4>
+          <p>サロン内でECショップを無料で作成することができます。</p>
+          <br/>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="index-point-box">
+          <%= image_tag('index/index-icon-document.png', class: "index-icon-margin") %>
+          <h4>教材作成</h4>
+            <p>サロンのコンテンツになる教材を無料で作成することができます。</p>
+        </div>     
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="imasugu-touroku">
+  <h2>3つの項目を埋めるだけ！今すぐショップを作る</h2>
+  <br/>
+  <div><%= link_to "無料でオンラインサロンを開く", new_owner_registration_path , class: "btn btn-success btn-lg"%></div>
+</div>
+
+
+
+
+
+
+
+<!-- application.htmlの用のdivタグ -->
 <div>
-  <% if owner_signed_in? %>
-    <p>オーナーログイン中</p>
-    <p><%= link_to "オーナー専用ページ", owner_salon_path(current_owner.id) %></p>
-    <p><%= link_to "オーナーログアウト", destroy_owner_session_path, method: :delete %></p>
-  <% else %>
-    <a><%= link_to "オーナーログイン", new_owner_session_path %></a>
-  <% end %>
-</div>
-
-<hr>
-
-<div>
-  <% if user_signed_in? %>
-    <p>ユーザーログイン中</p>
-    <p><%= link_to "マイページ", user_path(current_user.id) %></p>
-    <p><%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete %></p>
-  <% else %>
-    <a><%= link_to "ユーザーログイン", new_user_session_path %></a>
-  <% end %>
-</div>
-
-<hr>
-<h2>サロン一覧</h2>
-<% @salons.each do |salon| %>
-  <p>・<%= link_to salon.salon_name, salon_index_salon_path(salon.salon_id) %></p>
-<% end %>
-
+<!-- ーーーーーーーーーーーーーーーーー -->

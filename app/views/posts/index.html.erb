@@ -1,23 +1,31 @@
-<h1>Post Index</h1>
 
-<% @posts.each do |post| %>
-  <p>タイトル：<%= post.title %></p>
-  <p>本文：<%= post.body.html_safe %></p>
-  <%= form_for @comment , url: "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments" , method: :post do |f| %>
-    <p>コメント：<%= f.text_field :body %></p>
-    <p><%= f.submit "コメントする" %></p>
-  <% end %>
-  <p>【最新のコメント】</p>
-  <% post.post_comments.last(3).each do |comment| %>
-    <p>・<%= comment.get_nickname %> | <%= comment.body %>
-      <% if current_role.owner_of?(comment) %>
-        <%= link_to "削除", "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments/#{comment.id}", method: :delete %>
+
+  <h1>Post Index</h1>
+
+  <% @posts.each do |post| %>
+    <div class="post">
+      <p class="post-title"><%= post.title %></p>
+      <p><%= post.body.html_safe %></p>
+      <div class="post-border"></div>
+      <p>【最新のコメント】</p>
+      <% post.post_comments.last(3).each do |comment| %>
+        <p>・<%= comment.get_nickname %> | <%= comment.body %>
+          <% if current_role.owner_of?(comment) %>
+            <%= link_to "削除", "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments/#{comment.id}", method: :delete %>
+          <% end %>
+        </p>
       <% end %>
-    </p>
+      <p><%= link_to "全てのコメントを見る" , salon_post_path(params[:salon_id], post.id) %></p>
+      <%= form_for @comment , url: "/salons/#{params[:salon_id]}/posts/#{post.id}/post_comments" , method: :post do |f| %>
+        <p>コメント：<%= f.text_field :body %></p>
+        <p><%= f.submit "コメントする", class: "btn btn-primary"  %></p>
+      <% end %>
+    </div>
   <% end %>
-  <p><%= link_to "全てのコメントを見る" , salon_post_path(params[:salon_id], post.id) %></p>
-  <a>--------------------------------</a>
-<% end %>
 
 
-<p><%= link_to "サロントップ", salon_path(@salon_id) %></p>
+  <p><%= link_to "サロントップ", salon_path(@salon_id) %></p>
+
+
+
+
