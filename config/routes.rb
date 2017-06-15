@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   end
 
   resources :user, only: [:show] do
+    resources :shopcarts,only: [:index, :create ,:update, :destroy]
     member do
       get :profile_edit
       patch :profile_update

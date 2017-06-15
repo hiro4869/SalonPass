@@ -1,7 +1,11 @@
 <h1>マイページ</h1>
 
 <h2>プロフィール</h2>
-  <p><%= link_to "プロフィールを編集",profile_edit_user_path(params[:id]) %></p>
+  <p><%= link_to "プロフィールを編集", profile_edit_user_path(params[:id]) %></p>
+<hr>
+
+<h2>プロフィール</h2>
+  <p><%= link_to "ショップカート", user_shopcarts_path(params[:id]) %></p>
 <hr>
 
 

@@ -10,7 +10,6 @@ class SalonsController < ApplicationController
   end
 
   def show
-    @salon_id = params[:id]
     @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
   end
 
