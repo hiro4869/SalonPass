@@ -24,6 +24,14 @@ class ShopcartsController < ApplicationController
     redirect_to user_shopcarts_path(params[:user_id]) 
   end
 
+  def confirm
+    @shopcarts = Shopcart.where(user_id: params[:user_id])
+  end
+
+
+
+
+
   private
 
   def shopcart_params

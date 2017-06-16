@@ -1,0 +1,58 @@
+<h1>購入確認画面</h1>
+
+
+<% @shopcarts.each do |item| %>
+  <p>商品id：<%= item.product_id %></p>
+  <p>数量：<%= item.purchase_num %></p>
+  -----------------------------
+<% end %>
+
+
+<p class="center"><%= link_to "購入を確定する" , purchases_path , class: "btn btn-primary btn-lg", method: :post %></p>
+
+
+
+form_forを使わずに、普通にlink_toのpostメソッドで送ることができる？
+
+コントローラー側でnewしたものにデータを入れこめるかが問題。
+
+
+
+@shopcart = Shopcart.where(user_id: params[:user_id])
+
+@purhase = Purchase.new(item_params)
+@purchase.itemu_id = @shopcart.item_id
+
+
+@purshase.save
+
+
+
+①コトンローラがwの処理をどうするか？
+
+
+
+
+②Purchaseルーティング
+→user_idを保持するタイプなのか？
+→ルーティングを保持して
+
+current_user.idを使用すればいけるのでは？
+
+
+
+ーーーーーーーーーーーーーーーーーーーー
+@shopcarts = Shopcart.where(user_id: params[:user_id])
+
+@shopcarts.each do |item|
+  @purhase = Purchase.new
+  @purhase.user_id = item.user_id
+  @purhase.product_id = item.product_id
+  @purhase.save
+end
+
+@shopcarts.delete_all
+
+
+
+
