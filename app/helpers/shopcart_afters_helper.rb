@@ -1,0 +1,2 @@
+module ShopcartAftersHelper
+end

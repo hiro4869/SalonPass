@@ -1,7 +1,11 @@
 class ShopcartsController < ApplicationController
 
   def index
-    @shopcart = Shopcart.where(user_id: params[:user_id])
+    @shopcarts = Shopcart.where(user_id: params[:user_id])
+    @ShopcartAfters = ShopcartAfter.where(user_id: params[:user_id])
+
+    @shopcart = Shopcart.new
+    @ShopcartAfter = ShopcartAfter.new
   end
 
   def create

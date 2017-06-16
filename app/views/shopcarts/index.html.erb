@@ -1,10 +1,32 @@
 <h1>ショップカート</h1>
-<% @shopcart.each do |item| %>
+<% @shopcarts.each do |item| %>
   <p>商品id：<%= item.product_id %></p>
   <p>数量：<%= item.purchase_num %></p>
   <p><%= link_to "削除", "/user/#{item.user_id}/shopcarts/#{item.id}" ,method: :delete %></p>
+
+  <%= form_for @ShopcartAfter ,url: "/user/#{params[:user_id]}/shopcart_afters" ,method: :post do |f| %>
+    <%= f.hidden_field :user_id,:value => "#{item.user_id}" %>
+    <%= f.hidden_field :product_id,:value => "#{item.product_id}" %>
+    <%= f.hidden_field :purchase_num,:value => "#{item.purchase_num}" %>
+    <p><%= f.submit "後で買う" %></p>
+  <% end %>
 ---------------------------------------
 <% end %>
 
 <hr>
 <h2>「あとで買う」に入っている商品</h2>
+
+<% @ShopcartAfters.each do |item| %>
+  <p>商品id：<%= item.product_id %></p>
+  <p>数量：<%= item.purchase_num %></p>
+  <p><%= link_to "削除", "/user/#{item.user_id}/shopcart_afters/#{item.id}" ,method: :delete %></p>
+
+  <%= form_for @shopcart ,url: "/user/#{params[:user_id]}/shopcart_afters/return_cart" ,method: :post do |f| %>
+    <%= f.hidden_field :user_id,:value => "#{item.user_id}" %>
+    <%= f.hidden_field :product_id,:value => "#{item.product_id}" %>
+    <%= f.hidden_field :purchase_num,:value => "#{item.purchase_num}" %>
+    <p><%= f.submit "カートに戻す" %></p>
+  <% end %>
+
+-----------------------------------
+<% end %>
