@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(version: 20170617021254) do
   create_table "purchases", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "purchase_num"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "ordernumber_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "order_number_id"
   end
 
   create_table "salon_applyings", force: :cascade do |t|
