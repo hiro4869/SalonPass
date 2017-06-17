@@ -8,4 +8,4 @@
 <% end %>
 
 
-<p class="center"><%= link_to "購入を確定する" , purchases_path , class: "btn btn-primary btn-lg", method: :post %></p>
+<p class="center"><%= link_to "購入を確定する" , "/user/#{params[:user_id]}/purchases" , class: "btn btn-primary btn-lg", method: :post %></p>

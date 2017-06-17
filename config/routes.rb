@@ -57,6 +57,7 @@ Rails.application.routes.draw do
         post :return_cart
       end
     end
+   resources :purchases, only: [:create,:index]
 
     member do
       get :profile_edit
@@ -64,7 +65,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchases, only: [:create]
   resources :salon_applyings, only: [:create, :show]
   resources :salon_approveds, only: [:create, :show]
 

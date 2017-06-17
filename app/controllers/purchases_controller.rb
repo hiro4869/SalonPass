@@ -1,5 +1,10 @@
 class PurchasesController < ApplicationController
 
+  def index
+    @orders = OrderNumber.where(user_id: current_user.id)
+  end
+
+
   def create
     @shopcarts = Shopcart.where(user_id: current_user.id)
 

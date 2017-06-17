@@ -1,0 +1,8 @@
+<h1>購入履歴</h1>
+
+<% @orders.each do |order| %>
+  <p>注文番号:<%= order.id %></p>
+  <% order.purchases.each do |item| %>
+    <%= item.product_id %>
+  <% end %>
+<% end %>
