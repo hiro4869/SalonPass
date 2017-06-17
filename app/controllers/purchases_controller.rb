@@ -3,11 +3,17 @@ class PurchasesController < ApplicationController
   def create
     @shopcarts = Shopcart.where(user_id: current_user.id)
 
+    @OrderNumber = OrderNumber.new
+    @OrderNumber.user_id = current_user.id
+    @OrderNumber.save
+
+    @OrderNumberNow = OrderNumber.where(user_id: current_user.id).last
+
     @shopcarts.each do |item|
       @purchase = Purchase.new
-      @purchase.user_id = item.user_id
       @purchase.product_id = item.product_id
       @purchase.purchase_num = item.purchase_num
+      @purchase.ordernumber_id = @OrderNumberNow.id
       @purchase.save
     end
     @shopcarts.delete_all

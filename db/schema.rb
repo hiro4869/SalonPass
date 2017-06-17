@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616063157) do
+ActiveRecord::Schema.define(version: 20170617021254) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20170616063157) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "order_numbers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "owners", force: :cascade do |t|
@@ -87,11 +93,11 @@ ActiveRecord::Schema.define(version: 20170616063157) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "product_id"
     t.integer  "purchase_num"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "ordernumber_id"
   end
 
   create_table "salon_applyings", force: :cascade do |t|
