@@ -1,15 +1,13 @@
 <h1>購入確認画面</h1>
 
-<% goukei = 0 %>
-
 <% @shopcarts.each do |item| %>
   <p>商品id：<%= item.product_id %></p>
   <p>数量：<%= item.purchase_num %></p>
-  <p>小計：</p>
-  <% goukei = goukei + item.purchase_num %>
+  <p>価格：<%= item.product.price %></p>
+  <p>小計：<%= item.subtotal %></p>
   -----------------------------
 <% end %>
 
-<p>合計:<%= goukei %></p>
+<p>合計:<%= total(@shopcarts) %></p>
 
 <p class="center"><%= link_to "購入を確定する" , "/user/#{params[:user_id]}/purchases" , class: "btn btn-primary btn-lg", method: :post %></p>
