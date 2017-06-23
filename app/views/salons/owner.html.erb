@@ -6,7 +6,6 @@
             <h2>マイサロン</h2>
             <p><%= link_to "サロン紹介ページ", salon_index_salon_path(current_owner.id) %></p>
             <p><%= link_to "サロン会員トップ", salon_path(current_owner.id) %></p>
-            <p>余白</p>
           </div>
         </div>
         <div class="col-sm-4">
@@ -18,7 +17,6 @@
               <p><%= link_to "サロン情報登録", new_salon_salon_information_path(params[:id]) %></p>
             <% end %>
             <p><%= link_to "プロフィール編集", profile_edit_owner_path(params[:id]) %></p>
-            <p>余白</p>
           </div>
         </div>
         <div class="col-sm-4">
@@ -26,7 +24,6 @@
             <h2>メンバー</h2>
             <p><%= link_to "承認中のメンバー一覧", salon_applying_path(params[:id]) %></p>
             <p><%= link_to "承認済みメンバー一覧", salon_approved_path(params[:id]) %></p>
-            <p>余白</p>
           </div>     
         </div>
       </div>
@@ -52,9 +49,9 @@
         <div class="col-sm-4">
           <div class="owner-controler-box">
             <h2>コンテンツ</h2>
-            <p>余白</p>
-            <p>余白</p>
-            <p>余白</p>      
+            <br/>
+            <br/>
+            <p>Comming Soon</p>
           </div>
         </div>        
       </div>

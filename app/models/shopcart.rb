@@ -2,6 +2,7 @@ class Shopcart < ApplicationRecord
   belongs_to :product
 
 
+
   def subtotal
     self.product.price * self.purchase_num
   end
