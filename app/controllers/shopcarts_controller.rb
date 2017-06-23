@@ -29,9 +29,6 @@ class ShopcartsController < ApplicationController
   end
 
 
-
-
-
   private
 
   def shopcart_params

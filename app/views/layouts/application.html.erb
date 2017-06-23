@@ -12,7 +12,7 @@
     <div class="wrap">
       <% if controller.controller_name == "roots" && controller.action_name == "index" %>
         <div class="header">
-          <a><%= link_to "SlaonPass", root_path ,class: "head-title" %></a>
+          <a><%= link_to "SalonPass", root_path ,class: "head-title" %></a>
             <% if owner_signed_in? %>
               <a><%= link_to "ログアウト", destroy_owner_session_path, method: :delete, class: "header-nav-right" %></a>
               <a style="color: white;"><%= link_to "管理ページ", owner_salon_path(current_owner.id), class: "header-nav-right" %></a>
@@ -23,7 +23,7 @@
         </div>
       <% else %>
         <div class="header">
-          <a><%= link_to "SlaonPass", root_path ,class: "head-title" %></a>
+          <a><%= link_to "SalonPass", root_path ,class: "head-title" %></a>
           <% if user_signed_in? %>
             <a><%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete, class: "header-nav-right" %></a>
             <a><%= link_to "マイページ", user_path(current_user.id), class: "header-nav-right" %></a>
