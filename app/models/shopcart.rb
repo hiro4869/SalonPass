@@ -6,6 +6,8 @@ class Shopcart < ApplicationRecord
     self.product.price * self.purchase_num
   end
 
+  def new_purchase
+  end
   # def total
   #     total = 0
   #   self.each do |item|
