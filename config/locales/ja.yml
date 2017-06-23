@@ -11,6 +11,8 @@ ja:
       product:
         price: 価格
         product_name: 商品名
+      shopcart:
+        purchase_num: 数量
   date:
     abbr_day_names:
     - 日

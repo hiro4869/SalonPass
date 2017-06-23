@@ -1,6 +1,6 @@
 class Shopcart < ApplicationRecord
   belongs_to :product
-
+  validates :purchase_num, presence: true
 
 
   def subtotal

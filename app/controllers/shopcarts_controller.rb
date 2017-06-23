@@ -14,6 +14,7 @@ class ShopcartsController < ApplicationController
     if @shopcart.save
       redirect_to user_path(params[:user_id])
     else
+      @product = Product.find(params[:shopcart][:product_id])
       render 'products/show'
     end
   end

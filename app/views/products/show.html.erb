@@ -1,4 +1,11 @@
 <h1>商品詳細</h1>
+
+<% @shopcart.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger" role="alert">
+    <li><%= message %></li>
+  </div>
+<% end %>
+
 <p>商品名<%= @product.product_name %></p>
 <p>価格：<%= @product.price %>円</p>
 <p>商品説明：<%= @product.description.html_safe %></p>
