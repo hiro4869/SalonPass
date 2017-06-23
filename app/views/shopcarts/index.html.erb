@@ -1,6 +1,6 @@
 <h1>ショップカート</h1>
 <% @shopcarts.each do |item| %>
-  <p>商品id：<%= item.product_id %></p>
+  <p>商品名：<%= item.product.product_name %></p>  
   <p>数量：<%= item.purchase_num %></p>
   <p><%= link_to "削除", "/user/#{item.user_id}/shopcarts/#{item.id}" ,method: :delete %></p>
 

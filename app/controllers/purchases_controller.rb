@@ -25,7 +25,7 @@ class PurchasesController < ApplicationController
         @purchase.order_number_id = @OrderNumberNow.id
         @purchase.save!
       end
-      @shopcarts.delete_all
+      @shopcarts.destroy_all
     end
     redirect_to user_path(current_user.id)
   end
