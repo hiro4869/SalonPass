@@ -1,8 +1,8 @@
-<h1>ショップのトップページ</h1>
+<h1>ショップの商品一覧</h1>
 <% @products.each do |product| %>
-  <p>商品名<%= product.product_name %></p>
+  <h3>商品名：<%= product.product_name %></h3>
   <p>価格：<%= product.price %>円</p>
   <p>商品説明：<%= product.description.html_safe %></p>
   <p><%= link_to "詳しくみる", salon_product_path(params[:salon_id],product.id) %></p>
-  --------------------------
+  <hr>
 <% end %>
