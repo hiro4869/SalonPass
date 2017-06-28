@@ -12,6 +12,7 @@ class PostCommentsController < ApplicationController
     end
 
     if @comment.save
+      @comment.post.touch
       redirect_to salon_posts_path(params[:salon_id])
     else
       redirect_to salon_posts_path(params[:salon_id])
