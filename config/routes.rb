@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :salon_applyings, only: [:create, :show]
+  resources :salon_applyings, only: [:create, :show, :destroy]
   resources :salon_approveds, only: [:create, :show, :destroy]
 
   root 'roots#index'

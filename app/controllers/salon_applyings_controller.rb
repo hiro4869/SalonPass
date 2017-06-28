@@ -16,6 +16,12 @@ class SalonApplyingsController < ApplicationController
     end
   end
 
+  def destroy
+    @SalonApplying = SalonApplying.find(params[:id])
+    @SalonApplying.destroy
+    redirect_to salon_applying_path(current_owner.id) 
+  end
+
   private
 
     def salon_applying_params

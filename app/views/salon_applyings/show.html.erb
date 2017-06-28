@@ -6,6 +6,7 @@
     <%= form_for @SalonApproved ,url: '/salon_approveds',method: :post do |f| %>
       <%= f.hidden_field :user_id, :value => user.user_id %>
       <%= f.submit "　承認する　" ,class: "btn btn-primary" %>
+      <%= link_to "　却下する　", "/salon_applyings/#{user.id}", method: :delete, data: { confirm: '申請を却下しますか？' } , class: "btn btn-danger" %>
     <% end %>
     <hr>
   <% end %>
