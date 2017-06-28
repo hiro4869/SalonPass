@@ -11,7 +11,7 @@
   ※ユーザーログイン時はサロン申請ボタンが表示されます
 <% else %>
   <%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
-    <%= f.hidden_field :owner_id, :value => @salon_id %>
+    <%= f.hidden_field :salon_id, :value => @salon_id %>
     <p><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary" %></p>
   <% end %>
 <% end %>

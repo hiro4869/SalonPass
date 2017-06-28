@@ -63,7 +63,7 @@ class PostsController < ApplicationController
       # redirect_to root_path unless current_owner.id == "#{params[:salon_id]}".to_i
       redirect_to root_path unless current_owner.present? && current_owner.id == "#{params[:salon_id]}".to_i
     else
-      mysalon = SalonApproved.where(user_id: "#{current_user.id}").where(owner_id: "#{params[:salon_id]}")
+      mysalon = SalonApproved.where(user_id: "#{current_user.id}").where(salon_id: "#{params[:salon_id]}")
       redirect_to salon_index_salon_path(params[:salon_id]) unless mysalon.exists?
     end
   end
