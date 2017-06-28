@@ -8,9 +8,9 @@ class SalonInformationsController < ApplicationController
     @SalonInformation = SalonInformation.new(salon_information_params)
     @SalonInformation.salon_id = params[:salon_id]
     if @SalonInformation.save
-      redirect_to root_path
+      redirect_to owner_salon_path(params[:salon_id])
     else
-      redirect_to root_path
+      render 'salon_informations/new'
     end
   end
 

@@ -21,6 +21,9 @@ $darkpink: #d64470;
             box-sizing: border-box;
 }
 
+.center {
+  text-align: center;
+}
 
 /*----(ヘッダー)----------------------------*/
 
@@ -161,6 +164,7 @@ $darkpink: #d64470;
 
 .wrap {
   position: relative;
+  padding-bottom: 50px;
   width: 100%;
   height: 100%;
   min-height: 720px;
@@ -170,7 +174,6 @@ $darkpink: #d64470;
   position:absolute;
   bottom:0;
   width: 100%;
-  margin: 0 auto; 
   background-color: $black;
   height: 50px;
 }

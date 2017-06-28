@@ -1,13 +1,18 @@
 <h1>マイページ</h1>
 
 <h2>プロフィール</h2>
-  <p><%= link_to "プロフィールを編集",profile_edit_user_path(params[:id]) %></p>
+  <p><%= link_to "プロフィールを編集", profile_edit_user_path(params[:id]) %></p>
+<hr>
+
+<h2>お買い物</h2>
+  <p><%= link_to "ショップカート", user_shopcarts_path(params[:id]) %></p>
+  <p><%= link_to "購入履歴", user_purchases_path(params[:id]) %></p>
 <hr>
 
 
 <h2>参加中のサロン</h2>
 <% @SalonApproved.each do |salon| %>
-  <p>サロン：<%= link_to salon.owner_id, salon_path(salon.owner_id) %></p>
+  <p>サロン：<%= link_to salon.salon_id, salon_path(salon.salon_id) %></p>
 <% end %>
 
 
@@ -16,7 +21,7 @@
 
 <h2>申請中のサロン</h2>
 <% @SalonApplying.each do |salon| %>
-  <p>サロン：<%= link_to salon.owner_id, salon_index_salon_path(salon.owner_id) %></p>
+  <p>サロン：<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %></p>
 <% end %>
 
 <%= link_to "home", root_path %>

@@ -1,0 +1,15 @@
+<h1>新規出品</h1>
+
+  <% @product.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger" role="alert">
+      <li><%= message %></li>
+    </div>
+  <% end %>
+
+<%= form_for @product ,url: "/salons/#{params[:salon_id]}/products" ,method: :post do |f| %>
+  <p>商品名：<%= f.text_field :product_name %></p>
+  <p>価格：<%= f.text_field :price %></p>
+  <p>商品説明：<%= f.cktext_area :description %></p>
+  <p><%= f.submit "出品する" %></p>
+<% end %>
+

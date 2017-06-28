@@ -9,8 +9,8 @@
 
 <p>ここは会員のトップページになる</p>
 
-<p><%= link_to "サロン掲示板", salon_posts_path(@salon_id) %></p>
-
+<p><%= link_to "サロン掲示板", salon_posts_path(params[:id]) %></p>
+<p><%= link_to "ショップ", salon_products_path(params[:id]) %></p>
 <hr>
 
 

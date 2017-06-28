@@ -1,14 +1,14 @@
 class SalonApplyingsController < ApplicationController
 
   def show
-    @SalonApplyingMember = SalonApplying.where(owner_id: params[:id])
+    @SalonApplyingMember = SalonApplying.where(salon_id: params[:id])
     @SalonApproved = SalonApproved.new
   end
 
   def create
     @SalonApplying = SalonApplying.new
     @SalonApplying.user_id = current_user.id
-    @SalonApplying.owner_id = params[:salon_applying][:owner_id]
+    @SalonApplying.salon_id = params[:salon_applying][:salon_id]
     if @SalonApplying.save
       redirect_to root_path
     else
@@ -16,10 +16,16 @@ class SalonApplyingsController < ApplicationController
     end
   end
 
+  def destroy
+    @SalonApplying = SalonApplying.find(params[:id])
+    @SalonApplying.destroy
+    redirect_to salon_applying_path(current_owner.id) 
+  end
+
   private
 
     def salon_applying_params
-      params.require(:salon_applying).permit(:owner_id)
+      params.require(:salon_applying).permit(:salon_id)
     end
 
 end

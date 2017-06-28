@@ -1,0 +1,9 @@
+<h1>マイショップ管理画面</h1>
+<% @products.each do |product| %>
+  <p><%= product.product_name %></p>
+  <p><%= product.price %></p>
+  <p><%= product.description.html_safe %></p>
+  <p><%= link_to "編集", edit_salon_product_path(params[:salon_id],product.id) %></p>
+  <p><%= link_to "削除する", "/salons/#{params[:salon_id]}/products/#{product.id}", method: :delete %></p>
+  --------------------------
+<% end %>

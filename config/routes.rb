@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -18,6 +19,11 @@ Rails.application.routes.draw do
 
   resources :salons, only: [:show] do
     resources :salon_informations, only: [:new, :create, :edit, :update]
+    resources :products do
+      collection do
+        get :owner_index
+      end
+    end
 
     resources :posts do
       resources :post_comments
@@ -39,14 +45,28 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :user, only: [:show] do
+    resources :shopcarts, only: [:index, :create ,:update, :destroy] do
+      collection do
+        get :confirm
+      end
+    end
+    resources :shopcart_afters, only: [:create ,:update, :destroy] do
+      collection do
+        post :return_cart
+      end
+    end
+   resources :purchases, only: [:create,:index]
+
     member do
       get :profile_edit
       patch :profile_update
     end
   end
-  resources :salon_applyings, only: [:create, :show]
-  resources :salon_approveds, only: [:create, :show]
+
+  resources :salon_applyings, only: [:create, :show, :destroy]
+  resources :salon_approveds, only: [:create, :show, :destroy]
 
   root 'roots#index'
 
