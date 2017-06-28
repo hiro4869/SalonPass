@@ -13,11 +13,16 @@ class SalonApprovedsController < ApplicationController
 
     if @SalonApproved.save
       @SalonApplying.destroy_all
-      redirect_to owner_salon_path(current_owner.id)
+      redirect_to salon_applying_path(current_owner.id)
     else
       redirect_to owner_salon_path(current_owner.id)
     end
+  end
 
+  def destroy
+    @SalonApproved = SalonApproved.find(params[:id])
+    @SalonApproved.destroy
+    redirect_to salon_approved_path(current_owner.id) 
   end
 
 

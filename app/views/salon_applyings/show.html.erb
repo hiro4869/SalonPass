@@ -5,9 +5,9 @@
     <p>ユーザーid:<%= user.user_id %></p>
     <%= form_for @SalonApproved ,url: '/salon_approveds',method: :post do |f| %>
       <%= f.hidden_field :user_id, :value => user.user_id %>
-      <%= f.submit "承認する" %>
+      <%= f.submit "　承認する　" ,class: "btn btn-primary" %>
     <% end %>
-    -------------------------
+    <hr>
   <% end %>
 <% else %>
   <p>申請中のユーザーはおりません。</p>
@@ -15,4 +15,4 @@
 
 
 
-<p><%= link_to "オーナー専用ページへ", owner_salon_path(params[:id]) %></p>
+<p><%= link_to "管理ページへ", owner_salon_path(params[:id]) %></p>

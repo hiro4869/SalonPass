@@ -2,7 +2,9 @@
 
 <% if @SalonApprovedMember.present? %>
   <% @SalonApprovedMember.each do |user| %>
-    <p>・ユーザーid:<%= user.user_id %></p>
+    <p>●ユーザーid:<%= user.user_id %></p>
+    <%= link_to "メンバーから除外", "/salon_approveds/#{user.id}",method: :delete, class: "btn btn-primary" %>
+    <hr>
   <% end %>
 <% else %>
   <p>参加中のメンバーはおりません。</p>
@@ -10,4 +12,4 @@
 
 
 
-<p><%= link_to "オーナー専用ページへ", owner_salon_path(params[:id]) %></p>
+<p><%= link_to "管理ページへ", owner_salon_path(params[:id]) %></p>
