@@ -25,7 +25,6 @@ class SalonApprovedsController < ApplicationController
     redirect_to salon_approved_path(current_owner.id) 
   end
 
-
   private
 
     def salon_approved_params
