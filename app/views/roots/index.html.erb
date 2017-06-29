@@ -8,16 +8,17 @@
 
 
 <div class="setumei">
+  <h1 class="index-headline">あなただけのサロンを、無料で簡単に</h1>
+  <br/>
   <h3>オンラインサロンの作成はSalonPass！</h3>
   <h3>SNS、ECサイト、教材作成などの機能満載</h3>
   <br/>
-  <h1>あなただけのサロンを、無料で簡単に</h1>
   <div><%= link_to "無料でオンラインサロンを開く", new_owner_registration_path , class: "btn btn-success btn-lg index-button-margin"%></div>
 </div>
 
 
 <div class="point">
-  <h2>SalonPassの３つのポイント</h2>
+  <h2 class="index-headline">SalonPassの３つのポイント</h2>
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
@@ -59,16 +60,13 @@
 
 
 <div class="osusume-salon">
-  <h2>こんなサロンが簡単に作れます</h2>
-  <% @salons.each do |salon| %>
-    <p>・<%= link_to salon.salon_name, salon_index_salon_path(salon.salon_id) %></p>
-  <% end %>
-  <p>（メモ）プラグインのスライドバーでサロンのトップ画像を移動させてサンプルを表示させる感じに。</p>
+  <h2 class="index-headline">こんなサロンが簡単に作れます</h2>
+  <div><%= link_to "　　　　サロンを探す　　　　", search_salons_path , class: "btn btn-warning btn-lg index-button-margin"%></div>
 </div>
 
 
 <div class="osusume-kinou">
-  <h2>あったら嬉しいこんな機能も、無料で使えます!</h2>
+  <h2 class="index-headline">あったら嬉しいこんな機能も、無料で使えます!</h2>
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
@@ -100,7 +98,7 @@
 
 
 <div class="imasugu-touroku">
-  <h2>２つの項目を埋めるだけ！今すぐショップを作る</h2>
+  <h2 class="index-headline">２つの項目を埋めるだけ！今すぐサロンを作る</h2>
   <br/>
   <div><%= link_to "無料でオンラインサロンを開く", new_owner_registration_path , class: "btn btn-success btn-lg"%></div>
 </div>

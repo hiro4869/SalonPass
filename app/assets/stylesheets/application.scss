@@ -34,6 +34,8 @@ $darkpink: #d64470;
 }
 
 .head-title {
+  margin: 0 0 0 10px;
+  padding: 2px 0 0 0;
   color: $white;
   font-size: 30px;
 }
@@ -57,6 +59,7 @@ $darkpink: #d64470;
 
 
 .index-point-box {
+  height: 290px;
   margin: 10px 0 15px;
   padding: 5px 15px 5px;
   background-color: $white;
@@ -71,6 +74,10 @@ $darkpink: #d64470;
 
 .index-icon-margin{
   margin: 10px 0 15px;
+}
+
+.index-headline{
+  margin: 10px 0 20px;
 }
 
 .setumei {
@@ -181,16 +188,21 @@ $darkpink: #d64470;
 
 /*----(Devise)----------------------------*/
 
+/*Deviseのスタイルerror_explanationを上書き*/
 #error_explanation h2 {
   display: none;
 }
 
+#error_explanation ul {
+  padding: 0;
+}
 
 #error_explanation li {
     width: 100%;
     margin-bottom: 20px;
     padding: 15px;
     color: #a94442;
+    list-style:none;
     background-image: -webkit-linear-gradient(top, #f2dede 0%, #e7c3c3 100%);
     background-image: -o-linear-gradient(top, #f2dede 0%, #e7c3c3 100%);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#f2dede), to(#e7c3c3));

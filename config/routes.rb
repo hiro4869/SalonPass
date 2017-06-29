@@ -32,6 +32,10 @@ Rails.application.routes.draw do
       end
     end
 
+    collection do
+      get :search
+    end
+
     member do
       get :salon_index
       get :owner

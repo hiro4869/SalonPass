@@ -1,0 +1,5 @@
+<h1>サロン一覧</h1>
+
+  <% @salons.each do |salon| %>
+    <p>・<%= link_to salon.salon_name, salon_index_salon_path(salon.salon_id) %></p>
+  <% end %>

@@ -24,6 +24,7 @@
               <a><%= link_to "サロンを作る", "http://localhost:3000/owners/sign_up", class: "header-nav-right" %></a>
               <a><%= link_to "ユーザーログイン", new_user_session_path, class: "header-nav-right" %></a>
               <a><%= link_to "管理ログイン", new_owner_session_path, class: "header-nav-right" %></a>
+              <a><%= link_to "サロンを探す", search_salons_path, class: "header-nav-right" %></a>
             <% end %>
         </div>
       <% else %>
