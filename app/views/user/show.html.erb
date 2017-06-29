@@ -9,10 +9,14 @@
   <p><%= link_to "購入履歴", user_purchases_path(params[:id]) %></p>
 <hr>
 
-
 <h2>参加中のサロン</h2>
 <% @SalonApproved.each do |salon| %>
-  <p>サロン：<%= link_to salon.salon_id, salon_path(salon.salon_id) %></p>
+  <% if salon.salon_information.present? %>
+    <p>●<%= link_to salon.salon_information.salon_name, salon_path(salon.salon_id) %></p>
+  <% else %>
+    <p>●<%= link_to salon.salon_id, salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
+  <% end %>
+
 <% end %>
 
 
@@ -21,7 +25,12 @@
 
 <h2>申請中のサロン</h2>
 <% @SalonApplying.each do |salon| %>
-  <p>サロン：<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %></p>
+  <% if salon.salon_information.present? %>
+     <p>●<%= link_to salon.salon_information.salon_name, salon_index_salon_path(salon.salon_id) %></p>
+  <% else %>
+     <p>●<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
+  <% end %>
+
 <% end %>
 
 <%= link_to "home", root_path %>
