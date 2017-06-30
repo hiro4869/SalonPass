@@ -12,7 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require slick/slick
+//= require_directory .
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(document).on('ready', function() {
+  $(".fade").slick({
+    dots: true,
+    infinite: true,
+    speed:500,
+    fade:true,
+    cssEase: 'linear'
+  });
+});

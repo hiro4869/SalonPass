@@ -61,7 +61,25 @@
 
 <div class="osusume-salon">
   <h2 class="index-headline">こんなサロンが簡単に作れます</h2>
+  <div class="fade slider">
+    <div>
+      <%= image_tag('image1.jpg') %>
+    </div>
+    <div>
+      <%= image_tag('image2.jpg') %>
+    </div>
+    <div>
+      <%= image_tag('image3.jpg') %>
+    </div>
+    <div>
+      <%= image_tag('image4.jpg') %>
+    </div>
+    <div>
+      <%= image_tag('image5.jpg') %>
+    </div>
+  </div>
   <div><%= link_to "　　　　サロンを探す　　　　", search_salons_path , class: "btn btn-warning btn-lg index-button-margin"%></div>
+
 </div>
 
 
@@ -102,9 +120,6 @@
   <br/>
   <div><%= link_to "無料でオンラインサロンを開く", new_owner_registration_path , class: "btn btn-success btn-lg"%></div>
 </div>
-
-
-
 
 
 
