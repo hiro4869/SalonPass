@@ -39,7 +39,7 @@ $darkpink: #d64470;
             box-sizing: border-box;
 }
 
-.center {
+.btn-center {
   text-align: center;
 }
 
@@ -240,7 +240,7 @@ $darkpink: #d64470;
 
 
 .slider {
-    width: 80%;
+    width: 85%;
     margin: 20px auto;
 }
 
@@ -257,7 +257,8 @@ $darkpink: #d64470;
 .slick-prev:before,
 .slick-next:before {
   color: black;
-  font-size: 35px;
+  font-size: 25px;
+
 }
 
 .fade {

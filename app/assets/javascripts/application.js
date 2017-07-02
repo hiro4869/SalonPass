@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require slick/slick
 //= require_directory .
-//= require turbolinks
+
 //= require ckeditor/init
 //= require_tree .
 //= require bootstrap-sprockets

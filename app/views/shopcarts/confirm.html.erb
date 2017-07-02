@@ -10,4 +10,4 @@
 
 <p>合計:<%= total(@shopcarts) %></p>
 
-<p class="center"><%= link_to "購入を確定する" , "/user/#{params[:user_id]}/purchases" , class: "btn btn-primary btn-lg", method: :post %></p>
+<p class="btn-center"><%= link_to "購入を確定する" , "/user/#{params[:user_id]}/purchases" , class: "btn btn-primary btn-lg", method: :post %></p>

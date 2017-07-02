@@ -1,0 +1,42 @@
+<h1>参加中・申請中のサロンの管理</h1>
+
+
+<h2>参加中のサロン</h2>
+<% @SalonApproved.each do |salon| %>
+  <% if salon.salon_information.present? %>
+    <p>
+    ●<%= link_to salon.salon_information.salon_name, salon_path(salon.salon_id) %>
+      <%= form_for salon ,url: "/salon_approveds/leave" ,method: :delete do |f| %>
+        <%= f.hidden_field :salon_id,:value => "#{salon.salon_id}" %>
+        <%= f.submit "サロンを脱退する", class: "btn btn-danger" %>
+      <% end %>
+    </p>
+
+  <% else %>
+    <p>●<%= link_to salon.salon_id, salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
+      <%= form_for salon ,url: "/salon_approveds/leave" ,method: :delete do |f| %>
+        <%= f.hidden_field :salon_id,:value => "#{salon.salon_id}" %>
+        <%= f.submit "サロンを脱退する", class: "btn btn-danger" %>
+      <% end %>
+  <% end %>
+
+<% end %>
+
+<hr>
+
+<h2>申請中のサロン</h2>
+<% @SalonApplying.each do |salon| %>
+  <% if salon.salon_information.present? %>
+    <p>●<%= link_to salon.salon_information.salon_name, salon_index_salon_path(salon.salon_id) %></p>
+    <%= form_for salon ,url: "/salon_applyings/refusal" ,method: :delete do |f| %>
+      <%= f.hidden_field :salon_id,:value => "#{salon.salon_id}" %>
+      <%= f.submit "申請を取り消す", class: "btn btn-danger" %>
+    <% end %>
+  <% else %>
+    <p>●<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
+    <%= form_for salon ,url: "/salon_applyings/refusal" ,method: :delete do |f| %>
+      <%= f.hidden_field :salon_id,:value => "#{salon.salon_id}" %>
+      <%= f.submit "申請を取り消す", class: "btn btn-danger" %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -30,7 +30,15 @@
   <% else %>
      <p>●<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
   <% end %>
-
 <% end %>
+
+<hr>
+
+<h2>サロンの管理</h2>
+  <%= link_to "参加中・申請中のサロンの管理", salon_management_user_path(current_user.id) %>
+
+<hr>
+
+<h2>サロンを探す</h2>
 
 <%= link_to "home", root_path %>

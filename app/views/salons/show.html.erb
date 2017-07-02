@@ -2,12 +2,9 @@
   <h1><%= @SalonInformation.salon_name %></h1>
   <hr>
 <% else %>
-  <h1>Salon show</h1>
+  <h1>サロントップページ</h1>
 <% end %>
 
-
-
-<p>ここは会員のトップページになる</p>
 
 <p><%= link_to "サロン掲示板", salon_posts_path(params[:id]) %></p>
 <p><%= link_to "ショップ", salon_products_path(params[:id]) %></p>

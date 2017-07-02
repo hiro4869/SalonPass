@@ -61,16 +61,25 @@ Rails.application.routes.draw do
         post :return_cart
       end
     end
-   resources :purchases, only: [:create,:index]
+    resources :purchases, only: [:create,:index]
 
     member do
       get :profile_edit
       patch :profile_update
+      get :salon_management
     end
   end
 
-  resources :salon_applyings, only: [:create, :show, :destroy]
-  resources :salon_approveds, only: [:create, :show, :destroy]
+  resources :salon_applyings, only: [:create, :show, :destroy] do
+    collection do
+      delete :refusal
+    end
+  end  
+  resources :salon_approveds, only: [:create, :show, :destroy] do
+    collection do
+      delete :leave
+    end
+  end    
 
   root 'roots#index'
 

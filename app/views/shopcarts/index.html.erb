@@ -13,13 +13,13 @@
 ---------------------------------------
 <% end %>
 
-<p class="center"><%= link_to "購入画面に進む", confirm_user_shopcarts_path(params[:user_id]), class: "btn btn-primary btn-lg" %></p>
+<p class="btn-center"><%= link_to "購入画面に進む", confirm_user_shopcarts_path(params[:user_id]), class: "btn btn-primary btn-lg" %></p>
 
 <hr>
 <h2>「あとで買う」に入っている商品</h2>
 
 <% @ShopcartAfters.each do |item| %>
-  <p>商品id：<%= item.product_id %></p>
+  <p>商品名：<%= item.product.product_name %></p>  
   <p>数量：<%= item.purchase_num %></p>
   <p><%= link_to "削除", "/user/#{item.user_id}/shopcart_afters/#{item.id}" ,method: :delete %></p>
 

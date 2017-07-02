@@ -22,6 +22,12 @@ class SalonApplyingsController < ApplicationController
     redirect_to salon_applying_path(current_owner.id) 
   end
 
+  def refusal
+    @SalonApplying = SalonApplying.where(salon_id: "#{params[:salon_applying][:salon_id]}").find_by(user_id: "#{current_user.id}")
+    @SalonApplying.destroy
+    redirect_to salon_management_user_path(current_user.id)
+  end
+
   private
 
     def salon_applying_params
