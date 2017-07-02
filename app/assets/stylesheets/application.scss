@@ -170,7 +170,9 @@ $blue: #3261AB;
 }
 
 
-
+.salon-manage-box {
+  margin: 10px 0 40px;
+}
 
 
 
@@ -196,6 +198,17 @@ $blue: #3261AB;
 .post-border {
   margin: 20px 0 15px;
   border-bottom: 1px solid $cyan;
+}
+
+
+/*----(ショップカート)----------------------------*/
+
+.shopcart-item-box {
+  margin: 10px 0 40px;
+}
+
+.shopcart-product-name {
+  font-weight: bold;
 }
 
 
