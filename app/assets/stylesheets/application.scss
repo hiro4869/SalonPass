@@ -27,6 +27,7 @@ $white: #F5F5F5;
 $pink: #FC5185;
 $darkpink: #d64470;
 
+$blue: #3261AB;
 
 
 /*----(共通)----------------------------*/
@@ -149,6 +150,19 @@ $darkpink: #d64470;
 
 
 .owner-controler-box {
+  min-height: 180px;
+  margin: 10px 0 15px;
+  padding: 5px 15px 5px;
+  background-color: $cyan;
+  border-radius: 5px;
+}
+
+
+/*----(マイページ)----------------------------*/
+
+
+.mypage-controler-box {
+  min-height: 180px;
   margin: 10px 0 15px;
   padding: 5px 15px 5px;
   background-color: $cyan;
@@ -160,7 +174,9 @@ $darkpink: #d64470;
 
 
 
-/*----(コンテンツ)----------------------------*/
+
+
+/*----(サロン掲示板)----------------------------*/
 
 .post {
   margin: 10px 0 15px;
@@ -170,7 +186,7 @@ $darkpink: #d64470;
 }
 
 .post-title {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   color: $pink;
   font-size: 20px;
   font-family: sans-serif;
@@ -179,9 +195,24 @@ $darkpink: #d64470;
 
 .post-border {
   margin: 20px 0 15px;
-  border-bottom: 2px dashed $cyan;
+  border-bottom: 1px solid $cyan;
 }
 
+
+
+/*----(購入履歴)----------------------------*/
+
+.purchase-order-box {
+  margin: 5px 0 10px;
+  padding: 5px 10px 10px;
+  border: 2px solid $black;
+  border-radius: 5px;
+}
+
+.purchase-order-item {
+  margin: 5px 0 10px;
+  padding: 5px 10px 10px;
+}
 
 
 

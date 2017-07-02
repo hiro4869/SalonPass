@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def owner_index
     @salon_id = params[:salon_id]
-    @posts = Post.where(salon_id: "#{params[:salon_id]}")
+    @posts = Post.where(salon_id: "#{params[:salon_id]}").order('updated_at DESC')
   end
 
   def show

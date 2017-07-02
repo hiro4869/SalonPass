@@ -1,44 +1,67 @@
 <h1>マイページ</h1>
 
-<h2>プロフィール</h2>
-  <p><%= link_to "プロフィールを編集", profile_edit_user_path(params[:id]) %></p>
-<hr>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="mypage-controler-box">
+      <h3>プロフィール</h3>
+      <p><%= link_to "プロフィールを編集", profile_edit_user_path(params[:id]) %></p>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="mypage-controler-box">
+      <h3>お買い物</h3>
+      <p><%= link_to "ショップカート", user_shopcarts_path(params[:id]) %></p>
+      <p><%= link_to "購入履歴", user_purchases_path(params[:id]) %></p>
+    </div>
+  </div>
+  <div class="col-sm-4">
+  <div class="mypage-controler-box">
+    <h3>参加中のサロン</h3>
+      <% @SalonApproved.each do |salon| %>
+        <% if salon.salon_information.present? %>
+          <p>●<%= link_to salon.salon_information.salon_name, salon_path(salon.salon_id) %></p>
+        <% else %>
+          <p>●<%= link_to salon.salon_id, salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<h2>お買い物</h2>
-  <p><%= link_to "ショップカート", user_shopcarts_path(params[:id]) %></p>
-  <p><%= link_to "購入履歴", user_purchases_path(params[:id]) %></p>
-<hr>
 
-<h2>参加中のサロン</h2>
-<% @SalonApproved.each do |salon| %>
-  <% if salon.salon_information.present? %>
-    <p>●<%= link_to salon.salon_information.salon_name, salon_path(salon.salon_id) %></p>
-  <% else %>
-    <p>●<%= link_to salon.salon_id, salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
-  <% end %>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="mypage-controler-box">
+      <h3>申請中のサロン</h3>
+      <% @SalonApplying.each do |salon| %>
+        <% if salon.salon_information.present? %>
+           <p>●<%= link_to salon.salon_information.salon_name, salon_index_salon_path(salon.salon_id) %></p>
+        <% else %>
+           <p>●<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="mypage-controler-box">
+      <h3>サロンの管理</h3>
+      <%= link_to "参加・申請中のサロン管理", salon_management_user_path(current_user.id) %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="mypage-controler-box">
+      <h3>サロンを探す</h3>
+      <%= link_to "サロンを探す", search_salons_path %>
+    </div>
+  </div>
+</div>
 
-<% end %>
 
 
 
-<hr>
 
-<h2>申請中のサロン</h2>
-<% @SalonApplying.each do |salon| %>
-  <% if salon.salon_information.present? %>
-     <p>●<%= link_to salon.salon_information.salon_name, salon_index_salon_path(salon.salon_id) %></p>
-  <% else %>
-     <p>●<%= link_to salon.salon_id, salon_index_salon_path(salon.salon_id) %> (サロン名が未設定のサロンです)</p>
-  <% end %>
-<% end %>
 
-<hr>
 
-<h2>サロンの管理</h2>
-  <%= link_to "参加中・申請中のサロンの管理", salon_management_user_path(current_user.id) %>
 
-<hr>
 
-<h2>サロンを探す</h2>
 
-<%= link_to "home", root_path %>
