@@ -1,8 +1,12 @@
-<h1>ショップの商品一覧</h1>
+<h1>ショップ</h1>
+<br/>
+<p><%= link_to "サロントップ", salon_path(params[:salon_id]) %> ＞ ショップ</p>
 <% @products.each do |product| %>
-  <h3>商品名：<%= product.product_name %></h3>
+<div class="shop-product-box">
+  <p class="shop-product-name">商品名：<%= product.product_name %></p>
   <p>価格：<%= product.price %>円</p>
   <p>商品説明：<%= product.description.html_safe %></p>
-  <p><%= link_to "詳しくみる", salon_product_path(params[:salon_id],product.id) %></p>
-  <hr>
+  <br/>
+  <p><%= link_to "詳しくみる", salon_product_path(params[:salon_id],product.id), class: "btn btn-success" %></p>
+</div>
 <% end %>

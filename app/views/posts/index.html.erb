@@ -1,5 +1,6 @@
 <h1>サロン掲示板</h1>
 <br/>
+<p><%= link_to "サロントップ", salon_path(@salon_id) %> ＞ サロン掲示板</p>
 
 <% @posts.each do |post| %>
   <div class="post">
@@ -25,4 +26,4 @@
 <% end %>
 
 
-<p><%= link_to "サロントップ", salon_path(@salon_id) %></p>
+<p><%= link_to "サロントップへ", salon_path(@salon_id) %></p>

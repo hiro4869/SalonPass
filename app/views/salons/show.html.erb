@@ -1,28 +1,25 @@
 <% if @SalonInformation.present? %>
   <h1><%= @SalonInformation.salon_name %></h1>
-  <hr>
 <% else %>
   <h1>サロントップページ</h1>
 <% end %>
 
-
-<p><%= link_to "サロン掲示板", salon_posts_path(params[:id]) %></p>
-<p><%= link_to "ショップ", salon_products_path(params[:id]) %></p>
-<hr>
-
-
-
-<h2>お知らせ</h2>
-<p>オーナーが設定したお知らせを表示</p>
+<br/>
+<p>
+  <%= link_to "サロン掲示板", salon_posts_path(params[:id]), class: "btn btn-success"%>
+  <%= link_to "　ショップ　", salon_products_path(params[:id]), class: "btn btn-primary" %>
+</p>
 
 
-<hr>
+<div class="salon-top-box">
+  <h3>お知らせ</h3>
+  <p>お知らせはありません。</p>
+</div>
 
-
-<h2>最新の投稿</h2>
-<p>最新の掲示板の投稿を表示</p>
-
-
-
-
-<%= link_to "home", root_path %>
+<div class="salon-top-box">
+  <h3>最新の投稿</h3>
+  <br/>
+  <% @posts.each do |post| %>
+    <p>・<%= link_to post.title, salon_post_path(params[:id],post.id) %></p>
+  <% end %>
+</div>
