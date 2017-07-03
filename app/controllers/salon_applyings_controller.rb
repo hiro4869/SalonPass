@@ -6,14 +6,19 @@ class SalonApplyingsController < ApplicationController
   end
 
   def create
-    @SalonApplying = SalonApplying.new
-    @SalonApplying.user_id = current_user.id
-    @SalonApplying.salon_id = params[:salon_applying][:salon_id]
-    if @SalonApplying.save
-      redirect_to root_path
+    if owner_signed_in?
+      @SalonApplying = SalonApplying.new
+      @SalonApplying.user_id = current_user.id
+      @SalonApplying.salon_id = params[:salon_applying][:salon_id]
+      if @SalonApplying.save
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
     else
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
+
   end
 
   def destroy
