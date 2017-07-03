@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :salons, only: [:show] do
     collection do
       get :search
+      get :description
     end
     member do
       get :salon_index

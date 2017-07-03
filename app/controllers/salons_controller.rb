@@ -26,6 +26,9 @@ class SalonsController < ApplicationController
     @salons = SalonInformation.all
   end
 
+  def description
+  end
+
   private
 
   def correct_salon_user_for_index
