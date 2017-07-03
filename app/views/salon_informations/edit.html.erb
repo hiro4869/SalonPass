@@ -7,6 +7,17 @@
   <p>サロン説明</p>
   <p><%= f.text_area :salon_description , :size => "30x10" %></p>
   <br/>
+  <p>サロン画像</p>
+  <p><%= f.file_field :image %></p>
+  <br/>
+  <% if @SalonInformation.image? %>
+    <p>現在の画像</p>
+    <div class="salon-top-headimage">
+      <%= image_tag @SalonInformation.image.thumb_mini.url %>
+    <div>
+  <% end %>
+
+  <br/>
   <p><%= f.submit "　登録　",class: "btn btn-primary" %></p>
 <% end %>
     <ul>

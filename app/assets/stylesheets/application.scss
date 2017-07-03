@@ -1,3 +1,21 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require slick/slick
+ *= require slick/slick-theme
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -9,6 +27,7 @@ $white: #F5F5F5;
 $pink: #FC5185;
 $darkpink: #d64470;
 
+$blue: #3261AB;
 
 
 /*----(共通)----------------------------*/
@@ -21,9 +40,10 @@ $darkpink: #d64470;
             box-sizing: border-box;
 }
 
-.center {
+.btn-center {
   text-align: center;
 }
+
 
 /*----(ヘッダー)----------------------------*/
 
@@ -34,6 +54,8 @@ $darkpink: #d64470;
 }
 
 .head-title {
+  margin: 0 0 0 10px;
+  padding: 2px 0 0 0;
   color: $white;
   font-size: 30px;
 }
@@ -57,6 +79,7 @@ $darkpink: #d64470;
 
 
 .index-point-box {
+  height: 290px;
   margin: 10px 0 15px;
   padding: 5px 15px 5px;
   background-color: $white;
@@ -71,6 +94,10 @@ $darkpink: #d64470;
 
 .index-icon-margin{
   margin: 10px 0 15px;
+}
+
+.index-headline{
+  margin: 10px 0 20px;
 }
 
 .setumei {
@@ -93,7 +120,7 @@ $darkpink: #d64470;
 
 
 .osusume-salon {
-  height: 300px;
+  /*height: 300px;*/
   padding: 10px;
   background-color: $white;
   color: $black;
@@ -124,6 +151,7 @@ $darkpink: #d64470;
 
 
 .owner-controler-box {
+  min-height: 180px;
   margin: 10px 0 15px;
   padding: 5px 15px 5px;
   background-color: $cyan;
@@ -131,22 +159,69 @@ $darkpink: #d64470;
 }
 
 
+/*----(マイページ)----------------------------*/
+
+
+.mypage-controler-box {
+  min-height: 180px;
+  margin: 10px 0 15px;
+  padding: 5px 15px 5px;
+  background-color: $cyan;
+  border-radius: 5px;
+}
+
+
+.salon-manage-box {
+  margin: 10px 0 40px;
+}
 
 
 
+/*----(サロントップページ)----------------------------*/
 
-/*----(コンテンツ)----------------------------*/
+/*非会員様のインデックスページ*/
+.salon-index-box {
+  min-height: 200px;
+  margin: 30px 0 10px;
+  padding: 0 10px 10px;
+  border: 2px solid $black;
+  border-radius: 5px;
+}
+
+
+.salon-top-headimage {
+  height: 200px;
+  width: 100%;
+}
+
+
+.salon-top-box {
+  min-height: 200px;
+  margin: 30px 0 10px;
+  padding: 0 10px 10px;
+  border: 2px solid $black;
+  border-radius: 5px;
+}
+
+
+.salon-btn-width {
+  width: 110px;
+}
+
+
+
+/*----(サロン掲示板)----------------------------*/
 
 .post {
   margin: 10px 0 15px;
   padding: 20px;
-  border: 2px solid $cyan;
+  border: 2px solid $black;
   border-radius: 10px;
 }
 
 .post-title {
-  margin-bottom: 20px;
-  color: $pink;
+  margin-bottom: 35px;
+  color: $black;
   font-size: 20px;
   font-family: sans-serif;
   font-weight: bold;
@@ -154,9 +229,50 @@ $darkpink: #d64470;
 
 .post-border {
   margin: 20px 0 15px;
-  border-bottom: 2px dashed $cyan;
+  border-bottom: 1px solid $black;
 }
 
+/*----(ショップ商品)----------------------------*/
+
+.shop-product-box {
+  margin: 5px 0 10px;
+  padding: 10px 10px 10px;
+  border: 2px solid $black;
+  border-radius: 5px;
+}
+
+.shop-product-name {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+/*----(ショップカート)----------------------------*/
+
+.shopcart-item-box {
+  margin: 10px 0 40px;
+}
+
+.shopcart-product-name {
+  font-weight: bold;
+}
+
+
+
+/*----(購入履歴)----------------------------*/
+
+.purchase-order-box {
+  margin: 5px 0 10px;
+  padding: 5px 10px 10px;
+  border: 2px solid $black;
+  border-radius: 5px;
+}
+
+.purchase-order-item {
+  margin: 5px 0 10px;
+  padding: 5px 10px 10px;
+}
 
 
 
@@ -179,5 +295,70 @@ $darkpink: #d64470;
 }
 
 
+/*----(Devise)----------------------------*/
 
+/*Deviseのスタイルerror_explanationを上書き*/
+#error_explanation h2 {
+  display: none;
+}
+
+#error_explanation ul {
+  padding: 0;
+}
+
+#error_explanation li {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    color: #a94442;
+    list-style:none;
+    background-image: -webkit-linear-gradient(top, #f2dede 0%, #e7c3c3 100%);
+    background-image: -o-linear-gradient(top, #f2dede 0%, #e7c3c3 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f2dede), to(#e7c3c3));
+    background-image: linear-gradient(to bottom, #f2dede 0%, #e7c3c3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+    background-repeat: repeat-x;
+    border: 1px;
+    border-color: #dca7a7;
+    border-radius: 5px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+
+/*----(スライダーの設定)----------------------------*/
+
+
+.slider {
+    width: 85%;
+    margin: 20px auto;
+}
+
+.slick-slide {
+  margin: 0 10px;
+}
+
+.slick-slide img {
+  /*height: 300px;*/
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+  font-size: 25px;
+
+}
+
+.fade {
+  opacity: 1;
+}
+
+
+
+.salon-header-img {
+  width: 100%;
+}
 

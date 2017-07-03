@@ -1,24 +1,30 @@
-<h1>商品詳細</h1>
-
 <% @shopcart.errors.full_messages.each do |message| %>
   <div class="alert alert-danger" role="alert">
     <li><%= message %></li>
   </div>
 <% end %>
 
-<p>商品名<%= @product.product_name %></p>
-<p>価格：<%= @product.price %>円</p>
-<p>商品説明：<%= @product.description.html_safe %></p>
+<br/>
+<p><%= link_to "サロントップ", salon_path(params[:salon_id]) %> ＞ <%= link_to "ショップ", salon_products_path(params[:salon_id]) %> ＞ <%= @product.product_name %></p>
+<div class="shop-product-box">
+  <p class="shop-product-name">商品名<%= @product.product_name %></p>
+  <p>価格：<%= @product.price %>円</p>
+  <p>商品説明：<%= @product.description.html_safe %></p>
 
-<% if owner_signed_in? %>
-  <p>※ユーザーログイン時には購入ボタンが表示されます</p>
-<% else %>
-  <%= form_for @shopcart ,url: "/user/#{current_user.id}/shopcarts" ,method: :post do |f| %>
-    <p>数量：<%= f.text_field :purchase_num %></p>
-    <%= f.hidden_field :product_id, :value => @product.id  %>
-    <p><%= f.submit "カートに入れる" %></p>
+  <br/>
+
+  <% if owner_signed_in? %>
+    <p>※ユーザーログイン時には購入ボタンが表示されます</p>
+  <% else %>
+    <%= form_for @shopcart ,url: "/user/#{current_user.id}/shopcarts" ,method: :post do |f| %>
+      <p>購入数</p>
+      <p><%= f.text_field :purchase_num %></p>
+      <%= f.hidden_field :product_id, :value => @product.id  %>
+      <br/>
+      <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 
 

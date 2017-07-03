@@ -25,11 +25,17 @@ class SalonApprovedsController < ApplicationController
     redirect_to salon_approved_path(current_owner.id) 
   end
 
+  #ユーザーが脱退するアクション
+  def leave
+    @SalonApproved = SalonApproved.where(salon_id: "#{params[:salon_approved][:salon_id]}").find_by(user_id: "#{current_user.id}")
+    @SalonApproved.destroy
+    redirect_to salon_management_user_path(current_user.id)
+  end
 
   private
 
     def salon_approved_params
-      params.require(:salon_approved).permit(:user_id)
+      params.require(:salon_approved).permit(:user_id, :salon_id)
     end
 
 end

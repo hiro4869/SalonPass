@@ -1,11 +1,16 @@
 <h1>購入履歴</h1>
 
 <% @orders.each do |order| %>
-  <h3>注文番号:<%= order.id %></h3>
-  <% order.purchases.each do |item| %>
-    <p>商品番号<%= item.product_id %></p>
-    <p>購入数<%= item.purchase_num %></p>
-    <p>---------------</p>
-  <% end %>
-  <p>■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■</p>
+  <div class="purchase-order-box">
+    <h3>注文番号:<%= order.id %></h3>
+    <% order.purchases.each do |item| %>
+      <div class="purchase-order-item">
+        <p>商品名:<%= item.product.product_name %></p>
+        <p>価格:<%= item.product.price %>円</p>
+        <p>購入数:<%= item.purchase_num %></p>
+        <p>小計:<%= item.subtotal %>円</p>
+      </div>
+    <% end %>
+    <h4>合計:　<%= order_total(order) %>円</h4>
+  </div>
 <% end %>

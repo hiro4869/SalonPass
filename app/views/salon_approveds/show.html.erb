@@ -3,6 +3,7 @@
 <% if @SalonApprovedMember.present? %>
   <% @SalonApprovedMember.each do |user| %>
     <p>●ユーザーid:<%= user.user_id %></p>
+    <p>●ニックネーム:<%= user.user.nickname %></p>
     <%= link_to "メンバーから除外", "/salon_approveds/#{user.id}",method: :delete, data: { confirm: 'メンバーから除外しますか？' } , class: "btn btn-danger" %>
     <hr>
   <% end %>

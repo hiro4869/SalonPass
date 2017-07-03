@@ -18,6 +18,11 @@ class UserController < ApplicationController
     end
   end
 
+  def salon_management
+    @SalonApplying = SalonApplying.where(user_id: "#{current_user.id}")
+    @SalonApproved = SalonApproved.where(user_id: "#{current_user.id}")
+  end
+
   private
 
   def user_profile_params

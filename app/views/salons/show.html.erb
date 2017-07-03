@@ -1,31 +1,32 @@
 <% if @SalonInformation.present? %>
   <h1><%= @SalonInformation.salon_name %></h1>
-  <hr>
 <% else %>
-  <h1>Salon show</h1>
+  <h1>サロントップページ</h1>
 <% end %>
 
+<% if @SalonInformation.image? %>
+  <div>
+    <%= image_tag @SalonInformation.image, class: "salon-header-img" %>
+  </div>
+<% end %>
+
+<br/>
+<p>
+  <%= link_to "サロン掲示板", salon_posts_path(params[:id]), class: "btn btn-success salon-btn-width"%>
+  <%= link_to "ショップ", salon_products_path(params[:id]), class: "btn btn-primary salon-btn-width" %>
+  <%= link_to "サロン教材", salon_contents_path(params[:id]), class: "btn btn-warning salon-btn-width" %>
+</p>
 
 
-<p>ここは会員のトップページになる</p>
+<div class="salon-top-box">
+  <h3>お知らせ</h3>
+  <p>お知らせはありません。</p>
+</div>
 
-<p><%= link_to "サロン掲示板", salon_posts_path(params[:id]) %></p>
-<p><%= link_to "ショップ", salon_products_path(params[:id]) %></p>
-<hr>
-
-
-
-<h2>お知らせ</h2>
-<p>オーナーが設定したお知らせを表示</p>
-
-
-<hr>
-
-
-<h2>最新の投稿</h2>
-<p>最新の掲示板の投稿を表示</p>
-
-
-
-
-<%= link_to "home", root_path %>
+<div class="salon-top-box">
+  <h3>最新の投稿</h3>
+  <br/>
+  <% @posts.each do |post| %>
+    <p>・<%= link_to post.title, salon_post_path(params[:id],post.id) %></p>
+  <% end %>
+</div>

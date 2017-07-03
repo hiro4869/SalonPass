@@ -1,9 +1,17 @@
 <h1>商品編集画面</h1>
 
+<% @product.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger" role="alert">
+    <li><%= message %></li>
+  </div>
+<% end %>
+
 <%= form_for @product ,url: "/salons/#{params[:salon_id]}/products/#{params[:id]}" ,method: :patch do |f| %>
   <p>商品名：<%= f.text_field :product_name %></p>
   <p>価格：<%= f.text_field :price %></p>
   <p>商品説明：<%= f.cktext_area :description %></p>
-  <p><%= f.submit "更新する" %></p>
-  <p><%= link_to "削除する", "/salons/#{params[:salon_id]}/products/#{params[:id]}", method: :delete %></p>
+  <p>
+    <%= f.submit "更新する", class: "btn btn-primary" %>
+    <%= link_to "削除する", "/salons/#{params[:salon_id]}/products/#{params[:id]}", method: :delete, class: "btn btn-danger", data: { confirm: '商品を削除しますか？' }  %>
+  </p>
 <% end %>

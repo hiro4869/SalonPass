@@ -18,23 +18,30 @@ Rails.application.routes.draw do
   }
 
   resources :salons, only: [:show] do
+    collection do
+      get :search
+    end
+    member do
+      get :salon_index
+      get :owner
+    end
+
     resources :salon_informations, only: [:new, :create, :edit, :update]
+    resources :contents, only: [:index] do
+      # collection do
+      #   get :owner_index
+      # end
+    end
     resources :products do
       collection do
         get :owner_index
       end
     end
-
     resources :posts do
       resources :post_comments
       collection do
         get :owner_index
       end
-    end
-
-    member do
-      get :salon_index
-      get :owner
     end
   end
 
@@ -57,16 +64,25 @@ Rails.application.routes.draw do
         post :return_cart
       end
     end
-   resources :purchases, only: [:create,:index]
+    resources :purchases, only: [:create,:index]
 
     member do
       get :profile_edit
       patch :profile_update
+      get :salon_management
     end
   end
 
-  resources :salon_applyings, only: [:create, :show, :destroy]
-  resources :salon_approveds, only: [:create, :show, :destroy]
+  resources :salon_applyings, only: [:create, :show, :destroy] do
+    collection do
+      delete :refusal
+    end
+  end  
+  resources :salon_approveds, only: [:create, :show, :destroy] do
+    collection do
+      delete :leave
+    end
+  end    
 
   root 'roots#index'
 

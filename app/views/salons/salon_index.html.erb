@@ -1,19 +1,31 @@
 <% if @SalonInformation.present? %>
   <h1><%= @SalonInformation.salon_name %></h1>
-  <hr>
-  <h2>サロン説明</h2>
-  <h3><%= @SalonInformation.salon_description %></h3>
+  <% if @SalonInformation.image? %>
+    <div>
+      <%= image_tag @SalonInformation.image, class: "salon-header-img" %>
+    </div>
+  <% end %>  
+  <div class="salon-index-box">
+    <h2>サロン説明</h2>
+    <h4><%= @SalonInformation.salon_description %></h4>
+  </div>
 <% else %>
-  <h1>Salon Top</h1>
+  <h1>サロン紹介ページ</h1>
 <% end %>
 
+<br/>
+
 <% if owner_signed_in? %>
-  ※ユーザーログイン時はサロン申請ボタンが表示されます
+  <div class="btn-center">
+    <p class="btn btn-primary btn-lg">サロンに参加申請を送る</p>
+    <p>※管理ログイン時はこのボタンは動作しません。</p>
+  </div>
 <% else %>
   <%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
     <%= f.hidden_field :salon_id, :value => @salon_id %>
-    <p><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary" %></p>
+    <p class="btn-center"><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary btn-lg" %></p>
   <% end %>
 <% end %>
 
+<br/>
 <p>会員ページはこちら：<%= link_to "会員ページへ", salon_path(@salon_id) %></p>

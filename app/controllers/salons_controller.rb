@@ -11,11 +11,17 @@ class SalonsController < ApplicationController
 
   def show
     @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
+
+    @posts = Post.where(salon_id: "#{params[:id]}").order('updated_at DESC').limit(3)
+
   end
 
   def owner
     @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
+  end
 
+  def search
+    @salons = SalonInformation.all
   end
 
   private

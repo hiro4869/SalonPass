@@ -1,7 +1,9 @@
 <h1>編集画面</h1>
 
 <%= form_for @post ,url: "/salons/#{params[:salon_id]}/posts/#{params[:id]}" ,method: :patch do |f| %>
-  <p>タイトル：<%= f.text_field :title %></p>
+  <p>タイトル</p>
+  <p><%= f.text_field :title, :size => "40" %></p>
+  <br/>
   <p>本文：<%= f.cktext_area :body %></p>
-  <p><%= f.submit "更新" %></p>
+  <p><%= f.submit "　更新　" , class: "btn btn-primary" %></p>
 <% end %>

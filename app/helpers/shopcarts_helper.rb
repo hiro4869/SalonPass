@@ -6,4 +6,5 @@ module ShopcartsHelper
     end
     return total
   end
+
 end
