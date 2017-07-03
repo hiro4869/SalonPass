@@ -1,5 +1,7 @@
 <h1>申請中のユーザー一覧</h1>
-
+<br/>
+<p><%= link_to "管理ページ", owner_salon_path(params[:id]) %> ＞ 申請中のユーザー一覧</p>
+<br/>
 <% if @SalonApplyingMember.present? %>
   <% @SalonApplyingMember.each do |user| %>
     <p>ユーザーid:<%= user.user_id %></p>
@@ -17,4 +19,3 @@
 
 
 
-<p><%= link_to "管理ページへ", owner_salon_path(params[:id]) %></p>

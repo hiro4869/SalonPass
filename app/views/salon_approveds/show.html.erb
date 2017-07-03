@@ -1,4 +1,7 @@
 <h1>承認メンバー一覧</h1>
+<br/>
+<p><%= link_to "管理ページ", owner_salon_path(params[:id]) %> ＞ 承認メンバー一覧</p>
+<br/>
 
 <% if @SalonApprovedMember.present? %>
   <% @SalonApprovedMember.each do |user| %>
@@ -10,7 +13,3 @@
 <% else %>
   <p>参加中のメンバーはおりません。</p>
 <% end %>
-
-
-
-<p><%= link_to "管理ページへ", owner_salon_path(params[:id]) %></p>

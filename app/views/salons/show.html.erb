@@ -4,10 +4,12 @@
   <h1>サロントップページ</h1>
 <% end %>
 
-<% if @SalonInformation.image? %>
-  <div>
-    <%= image_tag @SalonInformation.image, class: "salon-header-img" %>
-  </div>
+<% if @SalonInformation.present? %>
+  <% if @SalonInformation.image? %>
+    <div>
+      <%= image_tag @SalonInformation.image, class: "salon-header-img" %>
+    </div>
+  <% end %>  
 <% end %>
 
 <br/>

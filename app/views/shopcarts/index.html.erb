@@ -1,5 +1,13 @@
 <h1>ショップカート</h1>
 <br/>
+
+<% if @shopcarts.empty? %>
+  <br/>
+  <p>現在、ショップカートに入っている商品はありません。</p>
+  <br/>
+<% end %>
+
+
 <% @shopcarts.each do |item| %>
 <div class="shopcart-item-box">
   <p class="shopcart-product-name">商品名：<%= item.product.product_name %></p>  
@@ -20,6 +28,14 @@
 
 <h2>「あとで買う」に入っている商品</h2>
 <br/>
+
+<% if @ShopcartAfters.empty? %>
+  <br/>
+  <p>現在、「あとで買う」に入っている商品はありません。</p>
+  <br/>
+<% end %>
+
+
 <% @ShopcartAfters.each do |item| %>
   <div class="shopcart-item-box">
     <p class="shopcart-product-name">商品名：<%= item.product.product_name %></p>  

@@ -2,6 +2,12 @@
 <br/>
 <p><%= link_to "サロントップ", salon_path(@salon_id) %> ＞ サロン掲示板</p>
 
+<% if @posts.empty? %>
+  <br/>
+  <p>現在、掲示板に投稿はありません。</p>
+<% end %>
+
+
 <% @posts.each do |post| %>
   <div class="post">
     <p class="post-title"><%= post.title %></p>
@@ -24,6 +30,3 @@
   </div>
   <br/>
 <% end %>
-
-
-<p><%= link_to "サロントップへ", salon_path(@salon_id) %></p>
