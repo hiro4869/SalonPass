@@ -6,7 +6,7 @@
 
 <% if @SalonInformation.image? %>
   <div>
-    <%= image_tag @SalonInformation.image.thumb.url %>
+    <%= image_tag @SalonInformation.image, class: "salon-header-img" %>
   </div>
 <% end %>
 

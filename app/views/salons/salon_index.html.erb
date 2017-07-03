@@ -2,7 +2,7 @@
   <h1><%= @SalonInformation.salon_name %></h1>
   <% if @SalonInformation.image? %>
     <div>
-      <%= image_tag @SalonInformation.image.thumb.url %>
+      <%= image_tag @SalonInformation.image, class: "salon-header-img" %>
     </div>
   <% end %>  
   <div class="salon-index-box">
