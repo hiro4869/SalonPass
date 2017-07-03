@@ -21,9 +21,14 @@
     <p>※管理ログイン時はこのボタンは動作しません。</p>
   </div>
 <% else %>
-  <%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
-    <%= f.hidden_field :salon_id, :value => @salon_id %>
-    <p class="btn-center"><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary btn-lg" %></p>
+  <% if @SalonInformation.present? %>
+    <% if @SalonInformation.automatic_approval == true %>
+      <%= render 'salons/form_auto_true' %>
+    <% else %>
+      <%= render 'salons/form_auto_false' %>
+    <% end %>
+  <% else %>
+      <%= render 'salons/form_auto_false' %>
   <% end %>
 <% end %>
 

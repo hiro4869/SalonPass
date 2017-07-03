@@ -1,0 +1,5 @@
+<%= form_for @SalonApproved ,url: '/salon_approveds/automatic_approval',method: :post do |f| %>
+  <%= f.hidden_field :salon_id, :value => @salon_id %>
+  <p class="btn-center"><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary btn-lg" %></p>
+  <p class="btn-center">このサロンは参加申請を送ると自動承認されます。</p>
+<% end %>

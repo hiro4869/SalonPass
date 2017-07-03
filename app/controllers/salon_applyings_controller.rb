@@ -6,6 +6,7 @@ class SalonApplyingsController < ApplicationController
   end
 
   def create
+    # ログインしていない場合はリダイレクトさせるための条件分岐
     if owner_signed_in? || user_signed_in?
       @SalonApplying = SalonApplying.new
       @SalonApplying.user_id = current_user.id

@@ -80,6 +80,7 @@ Rails.application.routes.draw do
   end  
   resources :salon_approveds, only: [:create, :show, :destroy] do
     collection do
+      post :automatic_approval
       delete :leave
     end
   end    

@@ -1,4 +1,7 @@
 <h1>サロン情報の登録</h1>
+<br/>
+<p><%= link_to "管理ページ", owner_salon_path(params[:salon_id]) %> ＞ サロン情報の登録</p>
+<br/>
 
 <%= form_for @SalonInformation ,url: salon_salon_informations_path(params[:salon_id]) do |f| %>
   <p>サロン名</p>
@@ -6,6 +9,9 @@
   <br/>
   <p>サロン説明</p>
   <p><%= f.text_area :salon_description , :size => "30x10" %></p>
+  <br/>
+  <p>サロン画像</p>
+  <p><%= f.file_field :image %></p>
   <br/>
   <p><%= f.submit "　登録　",class: "btn btn-primary" %></p>
 <% end %>

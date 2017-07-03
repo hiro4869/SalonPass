@@ -1,0 +1,5 @@
+<%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
+  <%= f.hidden_field :salon_id, :value => @salon_id %>
+  <p class="btn-center"><%= f.submit "サロンに参加申請を送る", class: "btn btn-primary btn-lg" %></p>
+  <p class="btn-center">※サロン管理者の承認後に会員ページを閲覧できるようになります。</p>
+<% end %>

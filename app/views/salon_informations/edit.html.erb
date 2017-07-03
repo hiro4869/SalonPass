@@ -1,4 +1,7 @@
 <h1>サロン情報の編集</h1>
+<br/>
+<p><%= link_to "管理ページ", owner_salon_path(params[:salon_id]) %> ＞ サロン情報の編集</p>
+<br/>
 
 <%= form_for @SalonInformation ,url: salon_salon_information_path(params[:salon_id],@SalonInformation.id) do |f| %>
   <p>サロン名</p>
@@ -12,9 +15,9 @@
   <br/>
   <% if @SalonInformation.image? %>
     <p>現在の画像</p>
-    <div class="salon-top-headimage">
-      <%= image_tag @SalonInformation.image.thumb_mini.url %>
     <div>
+      <%= image_tag @SalonInformation.image.thumb_mini.url %>
+    </div>
   <% end %>
 
   <br/>
@@ -26,4 +29,3 @@
     <% end %>
     </ul>
 <br/>
-<p><%= link_to "管理ページに戻る", owner_salon_path(params[:salon_id]) %></p>
