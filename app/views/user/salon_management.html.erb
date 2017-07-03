@@ -1,7 +1,15 @@
 <h1>参加中・申請中のサロンの管理</h1>
-
-
+<br/>
+<p><%= link_to "マイページ", user_path(current_user.id) %> ＞ 参加中・申請中のサロンの管理</p>
+<br/>
 <h2>参加中のサロン</h2>
+
+<% if @SalonApproved.empty? %>
+  <br/>
+  <p>現在、参加中のサロンはありません。</p>
+  <br/>
+<% end %>
+
 <% @SalonApproved.each do |salon| %>
   <% if salon.salon_information.present? %>
     <div class="salon-manage-box">
@@ -26,6 +34,13 @@
 <hr>
 
 <h2>申請中のサロン</h2>
+
+<% if @SalonApplying.empty? %>
+  <br/>
+  <p>現在、申請中のサロンはありません。</p>
+  <br/>
+<% end %>
+
 <% @SalonApplying.each do |salon| %>
   <% if salon.salon_information.present? %>
     <div class="salon-manage-box">

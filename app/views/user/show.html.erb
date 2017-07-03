@@ -17,6 +17,11 @@
   <div class="col-sm-4">
   <div class="mypage-controler-box">
     <h3>参加中のサロン</h3>
+      <% if @SalonApproved.empty? %>
+        <br/>
+        <p>現在、参加中のサロンはありません。</p>
+        <br/>
+      <% end %>
       <% @SalonApproved.each do |salon| %>
         <% if salon.salon_information.present? %>
           <p>●<%= link_to salon.salon_information.salon_name, salon_path(salon.salon_id) %></p>
@@ -33,6 +38,11 @@
   <div class="col-sm-4">
     <div class="mypage-controler-box">
       <h3>申請中のサロン</h3>
+      <% if @SalonApplying.empty? %>
+        <br/>
+        <p>現在、申請中のサロンはありません。</p>
+        <br/>
+      <% end %>
       <% @SalonApplying.each do |salon| %>
         <% if salon.salon_information.present? %>
            <p>●<%= link_to salon.salon_information.salon_name, salon_index_salon_path(salon.salon_id) %></p>

@@ -6,12 +6,12 @@ class SalonApplyingsController < ApplicationController
   end
 
   def create
-    if owner_signed_in?
+    if owner_signed_in? || user_signed_in?
       @SalonApplying = SalonApplying.new
       @SalonApplying.user_id = current_user.id
       @SalonApplying.salon_id = params[:salon_applying][:salon_id]
       if @SalonApplying.save
-        redirect_to root_path
+        redirect_to user_path(current_user)
       else
         redirect_to root_path
       end

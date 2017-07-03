@@ -14,7 +14,11 @@
   <br/>
 
   <% if owner_signed_in? %>
-    <p>※ユーザーログイン時には購入ボタンが表示されます</p>
+    <p>購入数</p>
+    <p><input type="text"></p>
+    <br/>
+    <p class="btn btn-primary">カートに入れる</p>
+    <p>※管理ログイン時はボタンは動作しません</p>
   <% else %>
     <%= form_for @shopcart ,url: "/user/#{current_user.id}/shopcarts" ,method: :post do |f| %>
       <p>購入数</p>

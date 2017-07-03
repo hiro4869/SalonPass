@@ -1,6 +1,13 @@
 <h1>ショップ</h1>
 <br/>
 <p><%= link_to "サロントップ", salon_path(params[:salon_id]) %> ＞ ショップ</p>
+
+<% if @products.empty? %>
+  <br/>
+  <p>現在、出品されている商品はありません。</p>
+<% end %>
+
+
 <% @products.each do |product| %>
 <div class="shop-product-box">
   <p class="shop-product-name">商品名：<%= product.product_name %></p>

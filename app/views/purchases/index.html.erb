@@ -1,4 +1,12 @@
 <h1>購入履歴</h1>
+<br/>
+<p><%= link_to "マイページ", user_path(current_user.id) %> ＞ 購入履歴</p>
+
+<% if @orders.empty? %>
+  <br/>
+  <p>現在、購入履歴はありません。</p>
+  <br/>
+<% end %>
 
 <% @orders.each do |order| %>
   <div class="purchase-order-box">
