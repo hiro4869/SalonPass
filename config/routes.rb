@@ -27,6 +27,11 @@ Rails.application.routes.draw do
     end
 
     resources :salon_informations, only: [:new, :create, :edit, :update]
+    resources :contents, only: [:index] do
+      # collection do
+      #   get :owner_index
+      # end
+    end
     resources :products do
       collection do
         get :owner_index

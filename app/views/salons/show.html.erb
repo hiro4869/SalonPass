@@ -12,8 +12,9 @@
 
 <br/>
 <p>
-  <%= link_to "サロン掲示板", salon_posts_path(params[:id]), class: "btn btn-success"%>
-  <%= link_to "　ショップ　", salon_products_path(params[:id]), class: "btn btn-primary" %>
+  <%= link_to "サロン掲示板", salon_posts_path(params[:id]), class: "btn btn-success salon-btn-width"%>
+  <%= link_to "ショップ", salon_products_path(params[:id]), class: "btn btn-primary salon-btn-width" %>
+  <%= link_to "サロン教材", salon_contents_path(params[:id]), class: "btn btn-warning salon-btn-width" %>
 </p>
 
 
