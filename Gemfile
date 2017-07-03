@@ -14,6 +14,7 @@ gem 'hirb'
 #掲示板用エディタ
 gem 'ckeditor'
  
+gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 

@@ -1,5 +1,10 @@
 <% if @SalonInformation.present? %>
   <h1><%= @SalonInformation.salon_name %></h1>
+  <% if @SalonInformation.image? %>
+    <div>
+      <%= image_tag @SalonInformation.image.thumb.url %>
+    </div>
+  <% end %>  
   <div class="salon-index-box">
     <h2>サロン説明</h2>
     <h4><%= @SalonInformation.salon_description %></h4>
@@ -11,7 +16,10 @@
 <br/>
 
 <% if owner_signed_in? %>
-  ※ユーザーログイン時はサロン申請ボタンが表示されます
+  <div class="btn-center">
+    <p class="btn btn-primary btn-lg">サロンに参加申請を送る</p>
+    <p>※管理ログイン時はこのボタンは動作しません。</p>
+  </div>
 <% else %>
   <%= form_for @SalonApplying ,url: '/salon_applyings',method: :post do |f| %>
     <%= f.hidden_field :salon_id, :value => @salon_id %>

@@ -1,5 +1,6 @@
 class SalonInformation < ApplicationRecord
   self.primary_key = "salon_id"
+  mount_uploader :image, ImageUploader
 
   belongs_to :owner ,optional: true
   has_many :salon_approveds
