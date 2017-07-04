@@ -1,11 +1,22 @@
 <h1>サロン情報の登録</h1>
+<br/>
+<p><%= link_to "管理ページ", owner_salon_path(params[:salon_id]) %> ＞ サロン情報の登録</p>
+<br/>
 
 <%= form_for @SalonInformation ,url: salon_salon_informations_path(params[:salon_id]) do |f| %>
-  <p>サロン名</p>
+  <p class="font-bold">サロン名</p>
   <p><%= f.text_field :salon_name , :size => "30" %></p>
   <br/>
-  <p>サロン説明</p>
+  <p class="font-bold">サロン説明</p>
   <p><%= f.text_area :salon_description , :size => "30x10" %></p>
+  <br/>
+  <p class="font-bold">サロン自動承認</p>
+  <p><%= f.radio_button 'automatic_approval', 'true' %> 自動承認する</p>
+  <p><%= f.radio_button 'automatic_approval', 'false' %> 自動承認しない</p>
+  <p>※ユーザーがサロンの参加申請をした際に自動で承認するか、手動で承認するかの設定です。</p>
+  <br/>
+  <p class="font-bold">サロン画像</p>
+  <p><%= f.file_field :image %></p>
   <br/>
   <p><%= f.submit "　登録　",class: "btn btn-primary" %></p>
 <% end %>

@@ -44,6 +44,9 @@ $blue: #3261AB;
   text-align: center;
 }
 
+.font-bold {
+  font-weight: bold;
+}
 
 /*----(ヘッダー)----------------------------*/
 
@@ -89,6 +92,7 @@ $blue: #3261AB;
 
 
 .index-button-margin {
+  width: 290px;
   margin: 20px 0 15px;
 }
 
@@ -208,6 +212,9 @@ $blue: #3261AB;
   width: 110px;
 }
 
+.salon-header-img {
+  width: 100%;
+}
 
 
 /*----(サロン掲示板)----------------------------*/
@@ -235,7 +242,7 @@ $blue: #3261AB;
 /*----(ショップ商品)----------------------------*/
 
 .shop-product-box {
-  margin: 5px 0 10px;
+  margin: 15px 0 25px;
   padding: 10px 10px 10px;
   border: 2px solid $black;
   border-radius: 5px;
@@ -357,8 +364,4 @@ $blue: #3261AB;
 }
 
 
-
-.salon-header-img {
-  width: 100%;
-}
 

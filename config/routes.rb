@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :salons, only: [:show] do
     collection do
       get :search
+      get :description
     end
     member do
       get :salon_index
@@ -80,6 +81,7 @@ Rails.application.routes.draw do
   end  
   resources :salon_approveds, only: [:create, :show, :destroy] do
     collection do
+      post :automatic_approval
       delete :leave
     end
   end    

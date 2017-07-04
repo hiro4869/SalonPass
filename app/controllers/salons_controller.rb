@@ -4,6 +4,8 @@ class SalonsController < ApplicationController
 
   def salon_index
     @SalonApplying = SalonApplying.new
+    @SalonApproved = SalonApproved.new
+    
     @salon_id = params[:id]
 
     @SalonInformation = SalonInformation.find_by(salon_id: "#{params[:id]}")
@@ -22,6 +24,9 @@ class SalonsController < ApplicationController
 
   def search
     @salons = SalonInformation.all
+  end
+
+  def description
   end
 
   private

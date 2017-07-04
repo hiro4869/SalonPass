@@ -31,7 +31,7 @@ class SalonInformationsController < ApplicationController
   private
 
   def salon_information_params
-      params.require(:salon_information).permit(:salon_name, :salon_description, :image)
+      params.require(:salon_information).permit(:salon_name, :salon_description, :automatic_approval, :image)
   end
 
 end
