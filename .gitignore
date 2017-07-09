@@ -19,6 +19,3 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-
-#データベース情報を無視
-/config/database.yml
