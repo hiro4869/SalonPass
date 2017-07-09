@@ -14,7 +14,7 @@ set :branch, 'master'
 set :deploy_to, '/var/www/SalonPass'
 
 # シンボリックリンクをはるファイル。(※後述)
-set :linked_files, fetch(:linked_files, []).push('config/secrets.yml', 'config/database.yml')
+set :linked_files, fetch(:linked_files, []).push('config/secrets.yml', 'config/database.yml', 'config/initializers/carrierwave.rb')
 
 # シンボリックリンクをはるフォルダ。(※後述)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')

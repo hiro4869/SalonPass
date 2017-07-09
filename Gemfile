@@ -24,6 +24,9 @@ gem 'rails', '~> 5.0.3'
 gem 'sqlite3'
 gem 'mysql2'
 
+gem 'fog-aws'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
