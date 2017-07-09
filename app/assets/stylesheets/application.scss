@@ -101,12 +101,12 @@ $blue: #3261AB;
 }
 
 .index-headline{
-  margin: 10px 0 20px;
+  margin: 100px 0 40px;
 }
 
 .setumei {
   /*height: 300px;*/
-  padding: 10px;
+  padding: 10px 10px 60px;
   background-color: $white;
   color: $black;
   text-align: center;
@@ -116,7 +116,7 @@ $blue: #3261AB;
 
 .point {
   /*height: 300px;*/
-  padding: 10px;
+  padding: 10px 10px 60px;
   background-color: $black;
   color: $white;
   text-align: center;
@@ -125,7 +125,7 @@ $blue: #3261AB;
 
 .osusume-salon {
   /*height: 300px;*/
-  padding: 10px;
+  padding: 10px 10px 60px;
   background-color: $white;
   color: $black;
   text-align: center;
@@ -134,7 +134,7 @@ $blue: #3261AB;
 
 .osusume-kinou {
   /*height: 300px;*/
-  padding: 10px;
+  padding: 10px 10px 70px;
   background-color: $black;
   color: $white;
   text-align: center;
@@ -142,14 +142,28 @@ $blue: #3261AB;
 
 
 .imasugu-touroku {
-  height: 300px;
-  padding: 10px;
+  /*height: 300px;*/
+  padding: 10px 10px 60px;
   background-color: $white;
   color: $black;
   text-align: center;
 }
 
 
+/*----(ログイン/サインアップページ)----------------------------*/
+
+
+.login-box {
+  width: 350px;
+  margin: 100px auto 0;
+  padding: 30px 20px 40px;
+  border: 1px solid $black;
+  border-radius: 5px;
+}
+
+.login-center {
+  text-align: center;
+}
 
 /*----(オーナー管理ページ)----------------------------*/
 
@@ -290,7 +304,7 @@ $blue: #3261AB;
   padding-bottom: 50px;
   width: 100%;
   height: 100%;
-  min-height: 720px;
+  min-height: 810px;
 }
 
 .footer {
@@ -338,7 +352,7 @@ $blue: #3261AB;
 
 
 .slider {
-    width: 85%;
+    width: 70%;
     margin: 20px auto;
 }
 
@@ -362,6 +376,4 @@ $blue: #3261AB;
 .fade {
   opacity: 1;
 }
-
-
 
